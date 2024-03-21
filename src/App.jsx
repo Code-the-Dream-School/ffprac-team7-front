@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Home } from './pages/home';
 import { Index } from './pages/indexPage';
+import { ItemDetails } from './pages/itemDetails';
 
 
 function App() {
@@ -13,6 +14,10 @@ function App() {
     {
       path: "/indexPage",
       element: <Index />
+    },
+    {
+      path: "/itemDetails",
+      element: <ItemDetails />
     },
 
   ]);
