@@ -4,7 +4,7 @@ import { Home } from './pages/home';
 import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import { ItemDetails } from './pages/itemDetails';
-
+import Header from './shared/header';
 
 
 function App() {
@@ -27,8 +27,8 @@ function App() {
 
   return (
     <div className="app">
+            <Header/>
             <RouterProvider router={router}>router </RouterProvider>
-
 
     </div>
 
