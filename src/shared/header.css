@@ -1,0 +1,23 @@
+.header-container {
+
+    background-color: #864AF9;
+    color: white;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;     /*sticky header*/
+    width: 100%;
+    top: 0;            /*aligns to top of page*/
+    z-index: 1000;        /*keeps on top of elements*/
+    padding: 10px 10px 10px;   /*suspect*/
+}
+
+.logo {
+    padding-right: 25px;
+    font-size: 1.5rem;;
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+}
