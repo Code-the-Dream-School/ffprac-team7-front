@@ -5,7 +5,7 @@ import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import { ItemDetails } from './pages/itemDetails';
 import Header from './shared/header';
-
+import './index.css'
 
 function App() {
   const router = createBrowserRouter([
