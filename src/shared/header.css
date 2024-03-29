@@ -3,7 +3,6 @@
     background-color: #864AF9;
     color: white;
     display:flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     position: sticky;     /*sticky header*/
