@@ -7,6 +7,7 @@ export function Home() {
             <p>This is the home page.</p>
             <Link to="/indexPage">Go to Index Page</Link>
             <Link to="/itemDetails">Go to Item Details page</Link>
+            <Link to="/reportedItems">Reported Items</Link>
         </div>
     )
 }

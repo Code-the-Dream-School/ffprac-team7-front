@@ -5,6 +5,7 @@ import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import { ItemDetails } from './pages/itemDetails';
 import Header from './shared/header';
+import  ItemDisplay from './pages/ItemDisplay'
 
 
 import './App.css'
@@ -24,6 +25,11 @@ function App() {
       path: "/itemDetails",
       element: <ItemDetails />
     },
+
+    {
+      path: "/reportedItems",
+      element: <ItemDisplay/>
+    }
 
   ]);
 
