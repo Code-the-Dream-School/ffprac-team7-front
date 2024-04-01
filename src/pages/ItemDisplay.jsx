@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/ItemDisplay.css' 
 
 const reportedItems = [
   {id: 1, title: "wallet", type: "found", description: "Dark brown bifold wallet with the monogram CTD printed on both side", photo:"https://media.istockphoto.com/photos/money-wallet-ii-picture-id91599577?k=6&m=91599577&s=612x612&w=0&h=k_F9VXa-93UtI1d1eSaH_eVkKcMrA4mBU2YZ_wmgQlU="},
@@ -16,12 +17,12 @@ const reportedItems = [
 
 const ItemDisplay = () =>{
 return (
-
-   reportedItems.map(item=>(<div key={item.id} className="ItemCard">
+<div className="reportedItemsContainer">
+   {reportedItems.map(item=>(<div key={item.id} className="ItemCard">
    <img className="itemPhoto" src={item.photo}/>
-   <h3 className="itemTitle">{item.title}</h3>
-   <p className="itemType">{item.type}</p>
-   </div>))
+   <h3>{item.title}</h3>
+   <p >{item.type}</p>
+   </div>))}</div>
 )
 };
 
