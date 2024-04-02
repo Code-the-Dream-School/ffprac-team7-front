@@ -6,7 +6,7 @@ const Header = ({pageTitle}) => {
         <div className='header-container'>
             <div className='menu-icon'>&#9776;</div> 
             
-            <div className='logo'>{ pageTitle === 'Home' ? StuffFindr : pageTitle} </div>
+            <div className='logo'>{!pageTitle ? 'StuffFindr' : pageTitle} </div>
         </div>
 
     )
