@@ -8,7 +8,7 @@ const ItemsDisplay = ({ reportedItems }) => {
     <div>
       <Header pageTitle="Reported Items" />
       {reportedItems.map(item => (
-        <ItemCard key={item.id} title={item.title} date={item.dateLostFound} />
+        <ItemCard key={item.id}  />
       ))}
     </div>
   );
