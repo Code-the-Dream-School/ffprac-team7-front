@@ -5,7 +5,7 @@ import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import { ItemDetails } from './pages/itemDetails';
 import Header from './shared/header';
-import  ItemDisplay from './pages/ItemDisplay'
+import  ItemsCard from './pages/ItemCard'
 
 
 import './App.css'
@@ -28,7 +28,7 @@ function App() {
 
     {
       path: "/reportedItems",
-      element: <ItemDisplay/>
+      element: <ItemsCard/>
     }
 
   ]);
