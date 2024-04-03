@@ -1,22 +1,28 @@
-.header-container {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.header-container {
     background-color: #864AF9;
-    color: white;
-    display:flex;
-    justify-content: space-between;
+    display: flex;
     align-items: center;
-    position: sticky;     /*sticky header*/
+    justify-content: space-between;
+    position: sticky;
     width: 100%;
-    top: 0;            /*aligns to top of page*/
-    z-index: 1000;        /*keeps on top of elements*/
-    padding: 10px 10px 10px;   /*suspect*/
+    top: 0;
+    z-index: 1000;
+    padding: 10px;
 }
 
 .logo {
-    padding-right: 25px;
-    font-size: 1.5rem;;
+    color: white;
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .menu-icon {
     font-size: 1.5rem;
+    color: white;
+  
 }
