@@ -2,9 +2,10 @@
 
 
 .reportedItemsContainer{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 40px;
     
 
 }
@@ -13,7 +14,6 @@
 .ItemCard{
     width: 143px;
         height: 146px;
-        padding: 40px;
         margin-top: 10px;
        
 }

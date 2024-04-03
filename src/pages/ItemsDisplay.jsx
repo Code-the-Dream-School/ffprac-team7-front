@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../shared/header";
-import ItemCard from "../shared/ItemCard"
-
+import ItemCard from "../shared/ItemCard";
+import "../styles/ItemDisplay.css";
 
 const ItemsDisplay = () => {
   const reportedItems = [
@@ -93,10 +93,11 @@ const ItemsDisplay = () => {
   return (
     <div>
       <Header pageTitle="Reported Items" />
+      <div className="reportedItemsContainer">
       {reportedItems.map(item => (
         <ItemCard key={item.id} photo={item.photo} title={item.title} dateLostFound={item.dateLostFound}/>
       ))}
-    </div>
+    </div></div>
   );
 };
 

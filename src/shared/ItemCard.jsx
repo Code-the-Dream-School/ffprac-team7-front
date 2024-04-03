@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/ItemDisplay.css' 
+
 
 
 const ItemCard = ({photo, title, dateLostFound, type,description, location}) =>{
