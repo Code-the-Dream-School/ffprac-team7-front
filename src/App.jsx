@@ -4,7 +4,7 @@ import { Home } from './pages/home';
 import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import { ItemDetails } from './pages/itemDetails';
-import Header from './shared/header';
+import Items from './pages/Items'
 
 
 import './App.css'
@@ -28,12 +28,16 @@ function App() {
       path: "/LandingPage",
       element: <LandingPage />
     },
+    {
+      path: "/reportedItems",
+      element: <Items />
+    }
 
   ]);
 
   return (
     <div className="app">
-      <Header />
+
       <RouterProvider router={router}>router </RouterProvider>
 
     </div>
