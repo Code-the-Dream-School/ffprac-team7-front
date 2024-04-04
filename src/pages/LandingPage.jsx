@@ -1,9 +1,12 @@
 import React from "react";
+import Header from "../shared/header";
+import "../styles/LandingPage.css";
 import { Link } from "react-router-dom";
 
 function LandingPage() {
     return (
         <div>
+            <Header pageTitle="Landing Page" />
             <h1>Welcome to the Landing Page</h1>
             <p>Search:</p>
             <input type='text' disabled />
