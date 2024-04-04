@@ -4,7 +4,7 @@ import { Home } from './pages/home';
 import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import { ItemDetails } from './pages/itemDetails';
-import  ItemsCard from './pages/ItemCard'
+import  Items from './pages/Items'
 
 
 import './App.css'
@@ -27,7 +27,7 @@ function App() {
 
     {
       path: "/reportedItems",
-      element: <ItemsCard/>
+      element: <Items/>
     }
 
   ]);
