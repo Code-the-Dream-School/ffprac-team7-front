@@ -28,6 +28,10 @@ function App() {
     {
       path: "/reportedItems",
       element: <Items/>
+    },
+    {
+      path: "/reportNewItem",
+      element: <NewItemPage/>
     }
 
   ]);
