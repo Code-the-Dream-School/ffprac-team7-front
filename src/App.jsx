@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {createBrowserRouter, RouterProvider, Routes, Route} from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Routes, Route } from "react-router-dom"
 import { Home } from './pages/home';
 import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
@@ -8,6 +8,7 @@ import  Items from './pages/Items'
 
 
 import './App.css'
+import LandingPage from './pages/LandingPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -15,7 +16,6 @@ function App() {
       path: "/",
       element: <Home />
     },
-    
     {
       path: "/indexPage",
       element: <Index />
@@ -24,6 +24,19 @@ function App() {
       path: "/itemDetails",
       element: <ItemDetails />
     },
+    {
+      path: "/LandingPage",
+      element: <LandingPage />
+    },
+
+    {
+      path: "/reportedItems",
+      element: <Items/>
+    },
+    {
+      path: "/reportNewItem",
+      element: <NewItemPage/>
+    }
 
     {
       path: "/reportedItems",
@@ -43,7 +56,7 @@ function App() {
 
     </div>
 
-   
+
   );
 
 }
