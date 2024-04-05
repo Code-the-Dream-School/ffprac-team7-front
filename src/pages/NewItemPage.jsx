@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import "../styles/NewItemPage.css";
+import Header from "../shared/header";
+import CameraIcon from "../assets/cameraicon";
+
+
 
 const NewItemPage = () => {
   const [title, setTitle] = useState("");
@@ -21,23 +26,34 @@ const NewItemPage = () => {
     setTitle("");
     setDescription("");
     setStatus("");
+    setDateLostFound("");
+    setImage("");
+    setLocation("");
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="image">Attach Image</label>
+      <Header pageTitle="Report an Item"/>
+      <form className="newItemFormContainer" onSubmit={handleSubmit}>
+           <label htmlFor="image">Attach Image</label>
+        <div className="imgInputContainer">
+          <br></br>
           <input
+           className="imgInput"
             type="file"
             id="image"
             accept="image/*"
             value={image}
-            onChange={handleImageChange}
-          ></input> </div>
+            onClick={handleImageChange}
+          />
 
-          <div><label htmlFor="date">Date</label>
+          <CameraIcon className="camera-icon"/>
+          </div>
+
+          <div><label  htmlFor="date">Date</label>
+          <br></br>
           <input
+          className="textInput"
             type="date"
             id="dateLostFound"
             value={dateLostFound}
@@ -46,8 +62,10 @@ const NewItemPage = () => {
           ></input>
 
            </div>
-        <div>  <label htmlFor="title">Item Name</label>
+        <div>  <label  htmlFor="title">Item Name</label>
+        <br></br>
           <input
+          className="textInput"
             type="text"
             id="title"
             value={title}
@@ -57,7 +75,9 @@ const NewItemPage = () => {
         </div>
         <div>
           <label >Location</label>
+          <br></br>
           <input
+          className="textInput"
             type="text"
             id="location"
             value={location}
@@ -67,6 +87,7 @@ const NewItemPage = () => {
         </div>
         <div>
           <label htmlFor="status">Item Category</label>
+          <br></br>
           <select
             id="status"
             value={status}
@@ -80,6 +101,7 @@ const NewItemPage = () => {
         </div>
         <div>
           <label htmlFor="description">Description</label>
+          <br></br>
           <textarea
             id="description"
             value={description}
