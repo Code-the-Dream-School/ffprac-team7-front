@@ -11,20 +11,31 @@ export function ItemDetails() {
             
             <h4 class='itemName'>Item Name</h4>
             
+            <div class="description-container"> 
             <h4 class="description" > Description </h4>
-            <textarea class="rect1" ></textarea>  {/* <-- text area ? */}
+            <textarea class="DescriptionBox" ></textarea>  {/* <-- text area ? */}
+            </div>
             
+            <div class='Date-Container'>
             <h4 class="date" > Date Found </h4>
-            <textarea class="rect2" placeholder="DD/MM/YYYY"> DD/MM/YYYY </textarea>   {/* <-- text area ? */}
-           
+            <textarea class="DateBox" placeholder="DD/MM/YYYY"> DD/MM/YYYY </textarea>   {/* <-- text area ? */}
+            </div>
+
+            <div class='Location-Container'>
             <h4 class="location" > Location </h4>
-            <textarea class="rect3" placeholder='Location' ></textarea>   {/* <-- text area ? */}
+            <textarea class="locationBox" placeholder='Location' ></textarea>   {/* <-- text area ? */}
+            </div>
             
+            <div class='Status-Container'>
             <h4 class="status" > Status </h4>
             <div class="lostFound" > Lost </div>   
+            </div>
 
-            <div class="claim" > Claim </div>   {/*button*/}
-        
+            <div class='Claim-Button-Container'>
+            <button class='button'> Claim</button>
+            </div>
+
+
             <Link class='BackHome' to="/">Back to Home Page</Link>
         </div>
     )
