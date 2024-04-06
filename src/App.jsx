@@ -8,7 +8,6 @@ import Items from './pages/Items'
 
 
 import './App.css'
-import LandingPage from './pages/LandingPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -23,10 +22,6 @@ function App() {
     {
       path: "/itemDetails",
       element: <ItemDetails />
-    },
-    {
-      path: "/LandingPage",
-      element: <LandingPage />
     },
     {
       path: "/reportedItems",
