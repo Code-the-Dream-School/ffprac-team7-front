@@ -8,7 +8,7 @@ export function ItemDetails() {
             <Header pageTitle="Item Details"/>
         <div class='item_details_container'>
             
-            <img class='itemImage' src='360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg'/>
+            <img class='itemImage' src='src/assets/placeholder.svg'/>
             
             <h4 class='itemName'>Item Name</h4>
             
