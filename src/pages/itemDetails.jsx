@@ -4,8 +4,9 @@ import "../styles/itemDetails.css";
 
 export function ItemDetails() {
     return (
-        <div class='item_details_container'>
+        <div>
             <Header pageTitle="Item Details"/>
+        <div class='item_details_container'>
             
             <img class='itemImage' src='360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg'/>
             
@@ -37,6 +38,7 @@ export function ItemDetails() {
 
 
             <Link class='BackHome' to="/">Back to Home Page</Link>
+        </div>
         </div>
     )
 }
