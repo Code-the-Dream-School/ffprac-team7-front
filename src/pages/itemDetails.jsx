@@ -6,39 +6,37 @@ export function ItemDetails() {
     return (
         <div>
             <Header pageTitle="Item Details"/>
-        <div class='item_details_container'>
+            <div className='item_details_container'>
+                <img className='itemImage' src='src/assets/placeholder.svg'/>
             
-            <img class='itemImage' src='src/assets/placeholder.svg'/>
+                <h2 className='itemName'>Item Name</h2>
             
-            <h4 class='itemName'>Item Name</h4>
-            
-            <div class="description-container"> 
-            <h4 class="description" > Description </h4>
-            <textarea class="DescriptionBox" ></textarea>  {/* <-- text area ? */}
-            </div>
-            
-            <div class='Date-Container'>
-            <h4 class="date" > Date Found </h4>
-            <textarea class="DateBox" placeholder="DD/MM/YYYY"> DD/MM/YYYY </textarea>   {/* <-- text area ? */}
-            </div>
+                <div className="description-container"> 
+                    <h3 className="description" > Description </h3>
+                    <p className="DescriptionBox" > </p>  
+                </div>
+                
+                <div className='date-Container'>
+                    <h3 className="date" > Date Found </h3>
+                    <p className="dateBox"> DD/MM/YYYY</p>  
+                </div>
 
-            <div class='Location-Container'>
-            <h4 class="location" > Location </h4>
-            <textarea class="locationBox" placeholder='Location' ></textarea>   {/* <-- text area ? */}
-            </div>
-            
-            <div class='Status-Container'>
-            <h4 class="status" > Status </h4>
-            <div class="lostFound" > Lost </div>   
-            </div>
+                <div className='location-Container'>
+                    <h3 className="location" > Location </h3>
+                    <p className="locationBox">Location</p>  
+                </div>
+                
+                <div className='status-Container'>
+                    <h3 className="status" > Status </h3>
+                    <p className="lostFound" > Lost </p>   
+                </div>
 
-            <div class='Claim-Button-Container'>
-            <button class='button'> Claim</button>
+                <div className='claim-Button-Container'>
+                    <button className='button'> Claim </button>
+                </div>
+
+                <Link class='BackHome' to="/">Back to Home Page</Link>
             </div>
-
-
-            <Link class='BackHome' to="/">Back to Home Page</Link>
-        </div>
         </div>
     )
 }

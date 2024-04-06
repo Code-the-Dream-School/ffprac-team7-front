@@ -33,13 +33,13 @@
   margin-left: 2rem;
   margin-right: 3rem;
   height: 8rem;
-  width: 90%;
+  width: 93%;
   background-color: lightgray;
   border-radius: 25px 25px 25px 25px;
 }
 
 
-.Date-Container{
+.date-Container{
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -51,15 +51,19 @@ font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
 color: rgb(102, 102, 102);
 margin-left: 2rem;
 }
-.DateBox {
+.dateBox {
 align-items: center;
 background-color: lightgray;
 border-radius: 25px 25px 25px 25px;
 margin-right: 3rem;
 }
+.dateLabel{
+    color: red;
+align-items: center;
+}
 
 
-.Location-Container{
+.location-Container{
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -83,7 +87,7 @@ margin-right: 3rem;
 }
 
 
-.Status-Container{
+.status-Container{
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -106,7 +110,7 @@ margin-left: 2rem;
   margin-right: 3rem;
 }
 
-.Claim-Button-Container{
+.claim-Button-Container{
 display: flex;
 flex-direction: row;
 align-items: center;
