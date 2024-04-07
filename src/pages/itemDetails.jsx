@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import Header from "../shared/header";
 import "../styles/itemDetails.css";
+import placeHolder from "../assets/placeholder.svg"
 
 export function ItemDetails() {
     return (
         <div>
             <Header pageTitle="Item Details"/>
             <div className='item_details_container'>
-                <img className='itemImage' src='src/assets/placeholder.svg'/>
+                <img className='itemImage' src='placeHolder' />
             
                 <h2 className='itemName'>Item Name</h2>
             
