@@ -8,13 +8,13 @@ export function ItemDetails() {
         <div>
             <Header pageTitle="Item Details"/>
             <div className='item_details_container'>
-                <img className='itemImage' src='placeHolder' />
+                <img className='itemImage' src={placeHolder} />
             
                 <h2 className='itemName'>Item Name</h2>
             
                 <div className="description-container"> 
                     <h3 className="description" > Description </h3>
-                    <p className="DescriptionBox" > </p>  
+                    <p className="descriptionBox" > </p>  
                 </div>
                 
                 <div className='date-Container'>

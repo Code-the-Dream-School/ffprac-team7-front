@@ -1,4 +1,6 @@
 .item_details_container {
+  margin-left: 2rem;
+  margin-right: 2rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -26,14 +28,14 @@
   color: rgb(102, 102, 102);
 }
 
-.DescriptionBox {
+.descriptionBox {
   display:flex;
   flex-direction: row;
   align-items: end;
   margin-left: 2rem;
   margin-right: 3rem;
   height: 8rem;
-  width: 93%;
+  width: 97%;
   background-color: lightgray;
   border-radius: 25px 25px 25px 25px;
 }
@@ -57,7 +59,7 @@ background-color: lightgray;
 border-radius: 25px 25px 25px 25px;
 margin-right: 3rem;
 }
-.dateLabel
+
 
 
 .location-Container{
@@ -121,17 +123,14 @@ font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
 color: rgb(102, 102, 102);
 }
 .button{
-background-color: #0C2D57; /* Blue */
-color: #0C2D57;
+background-color: #3B3486; /* Blue */
+color: #EFECEC;
 padding: 10px 25px;
 font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
 cursor: pointer;   
 border-radius: 25px 25px 25px 25px;
 }
 
-.backHome {
-display:flex;
-flex-direction: column;
-align-items: center;
-margin-top: 2rem;
-}
+
+
+
