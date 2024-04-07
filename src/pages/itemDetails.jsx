@@ -35,7 +35,7 @@ export function ItemDetails() {
                     <button className='button'> Claim </button>
                 </div>
 
-                <Link class='BackHome' to="/">Back to Home Page</Link>
+                <Link className='backHome' to="/">Back to Home Page</Link>
             </div>
         </div>
     )
