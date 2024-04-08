@@ -10,7 +10,7 @@ export function Home() {
             <Link to="/indexPage">Go to Index Page</Link>
             <Link to="/itemDetails">Go to Item Details page</Link>
             <Link to="/reportedItems">Reported Items</Link>
-            <Link to="/reportNewItem">Report and Item</Link>
+            <Link to="/reportNewItem">Report an Item</Link>
         </div>
     )
 }

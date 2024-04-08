@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/NewItemPage.css";
 import Header from "../shared/header";
-import CameraIcon from "../assets/cameraicon";
+import CameraIcon from "../assets/CameraIcon";
 
 
 
@@ -37,7 +37,7 @@ const NewItemPage = () => {
       <form className="newItemFormContainer" onSubmit={handleSubmit}>
            <label htmlFor="image">Attach Image</label>
         <div className="imgInputContainer">
-          <br></br>
+      
           <input
            className="imgInput"
             type="file"
@@ -51,7 +51,7 @@ const NewItemPage = () => {
           </div>
 
           <div><label  htmlFor="date">Date</label>
-          <br></br>
+       
           <input
           className="textInput"
             type="date"
@@ -63,7 +63,7 @@ const NewItemPage = () => {
 
            </div>
         <div>  <label  htmlFor="title">Item Name</label>
-        <br></br>
+        
           <input
           className="textInput"
             type="text"
@@ -74,8 +74,8 @@ const NewItemPage = () => {
           />
         </div>
         <div>
-          <label >Location</label>
-          <br></br>
+          <label htmlFor="location" >Location</label>
+         
           <input
           className="textInput"
             type="text"
@@ -87,7 +87,7 @@ const NewItemPage = () => {
         </div>
         <div>
           <label htmlFor="status">Item Category</label>
-          <br></br>
+          
           <select
             id="status"
             value={status}
@@ -101,7 +101,7 @@ const NewItemPage = () => {
         </div>
         <div>
           <label htmlFor="description">Description</label>
-          <br></br>
+       
           <textarea
             id="description"
             value={description}
