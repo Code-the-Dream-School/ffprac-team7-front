@@ -9,7 +9,7 @@ const NewItemPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [dateLostFound, setDateLostFound] = useState("");
   const [location, setLocation] = useState("")
 
@@ -18,23 +18,23 @@ const NewItemPage = () => {
     setImage(file);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    console.log("Form submitted:", { title, description, status });
-    // Reset to
-    setTitle("");
-    setDescription("");
-    setStatus("");
-    setDateLostFound("");
-    setImage("");
-    setLocation("");
-  };
+  //   console.log("Form submitted:", { title, description, status });
+  //   // Reset to
+  //   setTitle("");
+  //   setDescription("");
+  //   setStatus("");
+  //   setDateLostFound("");
+  //   setImage("");
+  //   setLocation("");
+  // };
 
   return (
     <div>
       <Header pageTitle="Report an Item"/>
-      <form className="newItemFormContainer" onSubmit={handleSubmit}>
+      <form className="newItemFormContainer" >
            <label htmlFor="image">Attach Image</label>
         <div className="imgInputContainer">
       
