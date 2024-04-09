@@ -1,20 +1,26 @@
-.item_details_container {
-  margin-left: 2rem;
-  margin-right: 2rem;
+
+
+.itemDetailsContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
 .itemImage {
-    border-radius: 25px 25px 25px 25px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 25px 25px 25px 25px;
 }
+
+
 
 .itemName {
   display:flex;
   flex-direction: column;
   align-items: center;
-  font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
   color: rgb(12, 45, 87);
 }
 
@@ -23,25 +29,22 @@
   display:flex;
   flex-direction: row;
   align-items: start;
-  margin-left: 2rem;
-  font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
-  color: rgb(102, 102, 102);
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: #0C2D57;
 }
 
 .descriptionBox {
   display:flex;
   flex-direction: row;
   align-items: end;
-  margin-left: 2rem;
-  margin-right: 3rem;
-  height: 8rem;
-  width: 97%;
-  background-color: lightgray;
+  height: 91px;
+  width: 100%;
+  background-color: #E5E5E5;
   border-radius: 25px 25px 25px 25px;
 }
 
 
-.date-Container{
+.dateContainer{
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -49,20 +52,18 @@ justify-content: space-between;
 }
 .date {
 align-items: center; 
-font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
-color: rgb(102, 102, 102);
-margin-left: 2rem;
+font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+color: #0C2D57;
 }
 .dateBox {
+width: 166.96px;
+height: 37px;
 align-items: center;
-background-color: lightgray;
+background-color:#e5e5e5;
 border-radius: 25px 25px 25px 25px;
-margin-right: 3rem;
 }
 
-
-
-.location-Container{
+.locationContainer{
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -72,21 +73,18 @@ justify-content: space-between;
 display:flex;
 flex-direction: column;
 align-items: center;
-font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
-color: rgb(102, 102, 102);
-margin-left: 2rem;
+font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+color: #0C2D57;
 }
 .locationBox {
-display:flex;
-flex-direction: column;
-align-items: center;
-background-color: lightgray;
+width: 165px;
+height: 35px;
+background-color:#e5e5e5;
 border-radius: 25px 25px 25px 25px;
-margin-right: 3rem;
 }
 
 
-.status-Container{
+.statusContainer{
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -96,20 +94,18 @@ justify-content: space-between;
 display:flex;
 flex-direction: column;
 align-items: center;
-font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
-color: rgb(102, 102, 102);
-margin-left: 2rem;
+font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+color: #0C2D57;
 }
 .lostFound {
  display:flex;
-  flex-direction: column;
-  align-items: center;
- font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
-  color: rgb(102, 102, 102);
-  margin-right: 3rem;
+ flex-direction: column;
+ align-items: center;
+ font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+ color: #0C2D57;
 }
 
-.claim-Button-Container{
+.claimButtonContainer{
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -119,14 +115,14 @@ justify-content: center;
 display:flex;
 flex-direction: column;
 align-items: center;
-font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
+font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
 color: rgb(102, 102, 102);
 }
 .button{
 background-color: #3B3486; /* Blue */
 color: #EFECEC;
 padding: 10px 25px;
-font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
+font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
 cursor: pointer;   
 border-radius: 25px 25px 25px 25px;
 }
