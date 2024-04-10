@@ -8,38 +8,23 @@ export function ItemDetails() {
         <div>
             <Header pageTitle="Item Details"/>
             <div className='itemDetailsContainer'>
-                <img className='itemImage' src={placeHolder} />
+                
+                <img className='itemImage' src={placeHolder} alt="Placeholder" />
             
                 <h2 className='itemName'>Item Name</h2>
             
-                <div className="descriptionContainer"> 
-                    <h3 className="description" > Description </h3>
-                    <p className="descriptionBox" > </p>  
-                </div>
+                <h3 className="description" > Description </h3>
+                <p className="descriptionBox" > </p>  
                 
-                <div className='dateContainer'>
-                    <h3 className="date" > Date Found </h3>
-                    <p className="dateBox"> DD/MM/YYYY</p>  
-                </div>
-
-                <div className='locationContainer'>
-                    <h3 className="location" > Location </h3>
-                    <p className="locationBox">Location</p>  
-                </div>
-                
-                <div className='statusContainer'>
-                    <h3 className="status" > Status </h3>
-                    <p className="lostFound" > Lost </p>   
-                </div>
+                <p className='dateLine'> Date Found <span className="dateBox"> DD/MM/YYYY</span></p>
+                <p className='locationLine'> Location <span className="locationBox">Location Name</span></p>
+                <p className='statusLine'> Status <span className="lostFound">Lost</span></p>
 
                 <div className='claimButtonContainer'>
                     <button className='button'> Claim </button>
-                </div>
-
-              
+                </div>  
             </div>
         </div>
     )
 }
-
 

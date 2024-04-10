@@ -1,5 +1,4 @@
 
-
 .itemDetailsContainer {
   display: flex;
   flex-direction: column;
@@ -8,13 +7,16 @@
   margin-right: 2rem;
   margin-left: 2rem;
 }
+
 .itemImage {
-  display: inline-flex;
+  display:flex;
+  flex-direction: column;
   align-items: center;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-top: 2rem;
   border-radius: 25px 25px 25px 25px;
 }
-
-
 
 .itemName {
   display:flex;
@@ -24,7 +26,7 @@
   color: rgb(12, 45, 87);
 }
 
-
+/* Description */
 .description {
   display:flex;
   flex-direction: row;
@@ -32,7 +34,6 @@
   font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
   color: #0C2D57;
 }
-
 .descriptionBox {
   display:flex;
   flex-direction: row;
@@ -43,68 +44,61 @@
   border-radius: 25px 25px 25px 25px;
 }
 
-
-.dateContainer{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-}
-.date {
-align-items: center; 
-font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
-color: #0C2D57;
+/* Date */
+.dateLine{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center; 
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: #0C2D57;
 }
 .dateBox {
-width: 166.96px;
-height: 37px;
-align-items: center;
-background-color:#e5e5e5;
-border-radius: 25px 25px 25px 25px;
+  width: 166.96px;
+  height: 37px;
+  align-items: center;
+  background-color:#e5e5e5;
+  border-radius: 25px 25px 25px 25px;
 }
 
-.locationContainer{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-}
-.location {
-display:flex;
-flex-direction: column;
-align-items: center;
-font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
-color: #0C2D57;
+/* Location */
+.locationLine{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: #0C2D57;
 }
 .locationBox {
-width: 165px;
-height: 35px;
-background-color:#e5e5e5;
-border-radius: 25px 25px 25px 25px;
+  width: 165px;
+  height: 35px;
+  background-color:#e5e5e5;
+  border-radius: 25px 25px 25px 25px;
 }
 
-
-.statusContainer{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-}
-.status {
-display:flex;
-flex-direction: column;
-align-items: center;
-font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
-color: #0C2D57;
+/* Status */
+.statusLine{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: #0C2D57;
 }
 .lostFound {
- display:flex;
- flex-direction: column;
- align-items: center;
- font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
- color: #0C2D57;
+  justify-self: end;
+  align-items: start;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: #0C2D57;
 }
 
+/* Claim Button */
 .claimButtonContainer{
 display: flex;
 flex-direction: row;
