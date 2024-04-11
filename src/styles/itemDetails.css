@@ -32,7 +32,7 @@
 }
 
 .descriptionBox {
-  height: 91px;
+  min-height: 91px;
   background-color: #E5E5E5;
   border-radius: 25px 25px 25px 25px;
 }
