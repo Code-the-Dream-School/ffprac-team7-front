@@ -10,13 +10,12 @@ export function ItemDetails() {
             <Header pageTitle="Item Details"/>
             <div className='itemDetailsContainer'>
                 <img className='itemImage' src={placeHolder} alt="Placeholder" />
-            
                 <h2 className='itemName'>Item Name</h2>
-            
                 <h3 className="description" > Description </h3>
-                <p className="descriptionBox" > </p>  
-                
-                <p className='descriptionDetail' > Date Found <span className="descriptionValue"> DD/MM/YYYY</span></p>
+                <p className="descriptionBox" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi corrupti eius autem quam libero dolore itaque vitae tempora, repellat quia adipisci, cumque possimus suscipit veritatis accusamus, praesentium enim sit fugiat!</p>  
+                <p className='descriptionDetail' > Date Found
+                    <span className="descriptionValue"> DD/MM/YYYY</span>
+                </p>
                 <p className='descriptionDetail'> Location
                     <span className="descriptionValue">Location
                         <span className="mapPin"><img src={mapPin} alt="map pin" /></span>
