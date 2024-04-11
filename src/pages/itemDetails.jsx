@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import Header from "../shared/header";
 import "../styles/itemDetails.css";
 import placeHolder from "../assets/placeholder.svg"
+import mapPin from "../assets/mapPin.svg"
 
 export function ItemDetails() {
     return (
@@ -15,12 +16,15 @@ export function ItemDetails() {
                 <h3 className="description" > Description </h3>
                 <p className="descriptionBox" > </p>  
                 
-                <p className='dateLine'> Date Found <span className="dateBox"> DD/MM/YYYY</span></p>
+                <p className='descriptionDetail' > Date Found <span className="descriptionValue"> DD/MM/YYYY</span></p>
+                <p className='descriptionDetail'> Location
+                    <span className="descriptionValue">Location
+                        <span className="mapPin"><img src={mapPin} alt="map pin" /></span>
+                    </span>
                 
-                <p className='locationLine'> Location <span className="locationBox">Location Name</span></p>
-                
-                <p className='statusLine'> Status <span className="lostFound">Lost</span>
-</p>
+                </p>
+                <p className='descriptionDetail'> Status <span className="lostFound descriptionValue">Lost</span>
+                </p>
 
                 <div className='claimButtonContainer'>
                     <button className='button'> Claim </button>
@@ -29,4 +33,3 @@ export function ItemDetails() {
         </div>
     )
 }
-
