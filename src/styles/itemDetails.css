@@ -1,7 +1,8 @@
 .itemDetailsContainer {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* prevents unneeded scrollbar */
+  min-height: calc(100vh - 65px);
   margin-right: 2rem;
   margin-left: 2rem;
 }
@@ -9,10 +10,10 @@
 .itemImage {
   display: flex;
   align-items: center;
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin: auto;
   margin-top: 2rem;
   border-radius: 25px 25px 25px 25px;
+  max-width: 500px;
 }
 
 .itemName {
@@ -29,12 +30,17 @@
   align-items: start;
   font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
   color: #0C2D57;
+  margin-bottom: 1rem;
 }
 
 .descriptionBox {
+  /*overrides paragraph's default margin*/
+  margin: 0 0 1rem 0;
   min-height: 91px;
   background-color: #E5E5E5;
   border-radius: 25px 25px 25px 25px;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  padding: 10px;
 }
 
 /* Date Location and status line */
@@ -47,25 +53,20 @@
   color: #0C2D57;
 }
 
+/* this selects the span inside the .descriptionDetail */
 .descriptionDetail span {
   color: #666666;
 }
 
-/* Date */
+/* consolidates redundant classes */
 .descriptionValue {
-  width: 166.96px;
-  height: 37px;
-  align-items: center;
-  background-color: #e5e5e5;
-  border-radius: 25px 25px 25px 25px;
-}
-
-/* Location */
-.descriptionValue {
-  padding: 10px 10px 0 10px;
+  width: 100%;
+  padding: 10px;
   background-color: #e5e5e5;
   border-radius: 25px 25px 25px 25px;
   position: relative;
+  /*separates text a bit*/
+  margin-left: 1rem;
 }
 
 .mapPin {
@@ -73,7 +74,7 @@
   right: 20px;
 }
 
-/* Status */
+/* resetting background since it there is none for "Lost" */
 .lostFound {
   background-color: transparent;
 }
