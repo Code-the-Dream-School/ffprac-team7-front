@@ -19,21 +19,12 @@ const HamburgerMenu = () => {
       >
        &#9776; </div>
 
-           <ul className={`list ${isOpen ? 'open' : ''}`} >
-        <li>
-          
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          
-          <Link to="/reportedItems">Reported Items</Link>
-        </li>
-        <li>
-          
-          <Link to="/reportNewItem">Report an Item</Link>
-        </li>
+      <ul className={`list ${isOpen ? 'open' : ''}`} >
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/reportedItems">Reported Items</Link></li>
+        <li><Link to="/reportNewItem">Report an Item</Link></li>
       </ul>
-      </div>
+    </div>
   );
 };
 
