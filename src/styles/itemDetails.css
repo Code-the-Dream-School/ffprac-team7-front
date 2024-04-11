@@ -38,7 +38,7 @@
 }
 
 /* Date Location and status line */
-.dateLocationStatus {
+.descriptionDetail {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -47,8 +47,12 @@
   color: #0C2D57;
 }
 
+.descriptionDetail span {
+  color: #666666;
+}
+
 /* Date */
-.dateBox {
+.descriptionValue {
   width: 166.96px;
   height: 37px;
   align-items: center;
@@ -57,19 +61,21 @@
 }
 
 /* Location */
-.locationBox {
-  width: 165px;
-  height: 35px;
+.descriptionValue {
+  padding: 10px 10px 0 10px;
   background-color: #e5e5e5;
   border-radius: 25px 25px 25px 25px;
+  position: relative;
+}
+
+.mapPin {
+  position: absolute;
+  right: 20px;
 }
 
 /* Status */
 .lostFound {
-  justify-self: end;
-  align-items: start;
-  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
-  color: #0C2D57;
+  background-color: transparent;
 }
 
 /* Claim Button */
