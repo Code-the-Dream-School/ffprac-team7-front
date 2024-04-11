@@ -22,8 +22,8 @@ span {
     color: #fdc500
 }
 
-p {
-    width: 340px;
+.about {
+    margin: 0 2rem;
     font-size: 13px;
     line-height: 23px;
     text-align: center;
