@@ -5,7 +5,8 @@ import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import { ItemDetails } from './pages/itemDetails';
 import Items from './pages/Items'
-
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css'
 
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <div className="app">
-
+      <ToastContainer/>
       <RouterProvider router={router}>router </RouterProvider>
 
     </div>

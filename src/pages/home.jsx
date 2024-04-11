@@ -1,8 +1,12 @@
 import Header from "../shared/header";
 import "../styles/homePage.css";
+import {toast} from 'react-toastify'
 
 
 export function Home() {
+
+
+  const notify  = () => toast("Hello world!")
     return (
         <div >
             <div>
@@ -16,6 +20,7 @@ export function Home() {
                 <div className="homePageBtns">
                     <button className="logInBtn" disabled>Log In</button>
                     <button className="signUpBtn" disabled>Sign Up</button>
+                    <button onClick={notify} style={{width: "100%", fontSize: "2rem", marginTop: "1rem"}}>Make some <span style={{fontStyle: "italic"}}>Toast</span></button>
                 </div>
             </div>
         </div>
