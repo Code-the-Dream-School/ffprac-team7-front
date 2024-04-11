@@ -3,14 +3,12 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow: hidden;
   margin-right: 2rem;
   margin-left: 2rem;
 }
 
 .itemImage {
   display:flex;
-  flex-direction: column;
   align-items: center;
   margin-left: 4rem;
   margin-right: 4rem;
@@ -19,7 +17,7 @@
 }
 
 .itemName {
-  display:flex;
+  display:flex;            
   flex-direction: column;
   align-items: center;
   font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
@@ -29,31 +27,27 @@
 /* Description */
 .description {
   display:flex;
-  flex-direction: row;
   align-items: start;
   font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
   color: #0C2D57;
 }
 .descriptionBox {
-  display:flex;
-  flex-direction: row;
-  align-items: end;
   height: 91px;
-  width: 100%;
   background-color: #E5E5E5;
   border-radius: 25px 25px 25px 25px;
 }
 
-/* Date */
-.dateLine{
+/* Date Location and status line */
+.dateLocationStatus{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  justify-content: space-between;
   align-items: center; 
   font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
   color: #0C2D57;
 }
+
+/* Date */
 .dateBox {
   width: 166.96px;
   height: 37px;
@@ -63,15 +57,6 @@
 }
 
 /* Location */
-.locationLine{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
-  color: #0C2D57;
-}
 .locationBox {
   width: 165px;
   height: 35px;
@@ -80,17 +65,6 @@
 }
 
 /* Status */
-.statusLine{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  align-items: center;
-  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
-  color: #0C2D57;
-}
 .lostFound {
   justify-self: end;
   align-items: start;
@@ -101,13 +75,11 @@
 /* Claim Button */
 .claimButtonContainer{
 display: flex;
-flex-direction: row;
 align-items: center;
 justify-content: center;
 }
 .claim {
 display:flex;
-flex-direction: column;
 align-items: center;
 font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
 color: rgb(102, 102, 102);
