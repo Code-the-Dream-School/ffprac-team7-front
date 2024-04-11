@@ -8,6 +8,7 @@ import Items from './pages/Items'
 
 
 import './App.css'
+import SignupPage from './pages/SignUpPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -25,11 +26,15 @@ function App() {
     },
     {
       path: "/reportedItems",
-      element: <Items/>
+      element: <Items />
     },
     {
       path: "/reportNewItem",
-      element: <NewItemPage/>
+      element: <NewItemPage />
+    },
+    {
+      path: "/SignUpPage",
+      element: <SignupPage />
     },
     {
       path: "/item/:id/claim",
