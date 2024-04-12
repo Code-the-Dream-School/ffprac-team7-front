@@ -1,11 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import DefaultImage from "../../assets/profilePicture.svg";
 import EditIcon from "../../assets/editIcon.svg";
 import "../../styles/imageUpload.css";
 
 
 const ImageUpload = () => {
-    const [photoURL, setPhotoURL] = useState(DefaultImage);
+    const [photoURL, setPhotoURL] = useState(() => {
+        return localStorage.getItem('photoURL') || DefaultImage;
+    });
 
     const fileUploadRef = useRef();
 
@@ -19,8 +21,15 @@ const ImageUpload = () => {
 
         const cachedURL = URL.createObjectURL(uploadedFile);
 
-        setPhotoURL(cachedURL)
+        setPhotoURL(cachedURL);
+        localStorage.setItem('photoURL', cachedURL);
     }
+
+    useEffect(() => {
+        return () => {
+            URL.revokeObjectURL(photoURL);
+        };
+    }, [photoURL]);
 
 
     return (
