@@ -10,7 +10,7 @@ export function Home() {
             </div>
             <div className="homePageContainer">
                 <h1>Welcome to Stuff<span>Findr</span></h1>
-                <p>Your go-to solution for swiftly reuniting with your cherished belongings!
+                <p className="about">Your go-to solution for swiftly reuniting with your cherished belongings!
                     Seamlessly report lost items and connect with a finder when a match is found.
                     StuffFindr is here to make the journey of reclaiming lost items easy and all at your fingertips!</p>
                 <div className="homePageBtns">

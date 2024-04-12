@@ -1,0 +1,105 @@
+.itemDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  /* prevents unneeded scrollbar */
+  min-height: calc(100vh - 65px);
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.itemImage {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: 2rem;
+  border-radius: 25px 25px 25px 25px;
+  max-width: 500px;
+}
+
+.itemName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font: 600 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: rgb(12, 45, 87);
+}
+
+/* Description */
+.description {
+  display: flex;
+  align-items: start;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: #0C2D57;
+  margin-bottom: 1rem;
+}
+
+.descriptionBox {
+  /*overrides paragraph's default margin*/
+  margin: 0 0 1rem 0;
+  min-height: 91px;
+  background-color: #E5E5E5;
+  border-radius: 25px 25px 25px 25px;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  padding: 10px;
+}
+
+/* Date Location and status line */
+.descriptionDetail {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: #0C2D57;
+}
+
+/* this selects the span inside the .descriptionDetail */
+.descriptionDetail span {
+  color: #666666;
+}
+
+/* consolidates redundant classes */
+.descriptionValue {
+  width: 100%;
+  padding: 10px;
+  background-color: #e5e5e5;
+  border-radius: 25px 25px 25px 25px;
+  position: relative;
+  /*separates text a bit*/
+  margin-left: 1rem;
+}
+
+.mapPin {
+  position: absolute;
+  right: 20px;
+}
+
+/* resetting background since it there is none for "Lost" */
+.lostFound {
+  background-color: transparent;
+}
+
+/* Claim Button */
+.claimButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.claim {
+  display: flex;
+  align-items: center;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: rgb(102, 102, 102);
+}
+
+.button {
+  background-color: #3B3486;
+  /* Blue */
+  color: #EFECEC;
+  padding: 10px 25px;
+  font: 400 18px/1.5 "Poppins", Helvetica, Arial, serif;
+  cursor: pointer;
+  border-radius: 25px 25px 25px 25px;
+}
