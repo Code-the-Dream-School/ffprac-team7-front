@@ -64,12 +64,12 @@ p {
 
 .signUpBtn {
 
-    width: 165px;
-    height: 42px;
+    width: 140px;
+    height: 33px;
     background: #3B3486;
     border-radius: 6px;
     font-family: 'Poppins';
-    font-size: 25px;
+    font-size: 18px;
     color: #FFFFFF;
     margin-top: 30px
 }
