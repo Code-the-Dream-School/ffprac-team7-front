@@ -8,7 +8,8 @@ import Items from './pages/Items'
 
 
 import './App.css'
-import SignupPage from './pages/SignUpPage';
+import SignupPage from './pages/SignUpPage/SignUpPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -35,6 +36,10 @@ function App() {
     {
       path: "/SignUpPage",
       element: <SignupPage />
+    },
+    {
+      path: "/LoginPage",
+      element: <LoginPage />
     },
     {
       path: "/item/:id/claim",
