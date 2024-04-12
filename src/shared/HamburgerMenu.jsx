@@ -25,6 +25,7 @@ const HamburgerMenu = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/reportedItems">Reported Items</Link></li>
         <li><Link to="/reportNewItem">Report an Item</Link></li>
+        <li><Link to="/itemDetails">Item Details</Link></li>
       </ul>
     </div>
   );
