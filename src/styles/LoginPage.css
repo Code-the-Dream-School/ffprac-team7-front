@@ -1,0 +1,4 @@
+.LoginPageContainer{
+    display: flex;
+    flex-direction: column;
+}
