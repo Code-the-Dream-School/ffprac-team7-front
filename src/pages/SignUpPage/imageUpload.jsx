@@ -23,10 +23,11 @@ const ImageUpload = () => {
         const cachedURL = URL.createObjectURL(uploadedFile);
         setPhotoURL(cachedURL);
         localStorage.setItem('photoURL', cachedURL);
-        console.log(uploadedFile);
-        console.log(cachedURL);
-        console.log()
     }
+
+    const handleImageError = () => {
+        setPhotoURL(DefaultImage);
+    };
 
     useEffect(() => {
         return () => {
@@ -41,6 +42,7 @@ const ImageUpload = () => {
                 src={photoURL}
                 alt="Default Profile Photo"
                 className="defaultImg"
+                onError={handleImageError}
             />
             <form id="form" encType='multipart/form-data'>
                 <button
