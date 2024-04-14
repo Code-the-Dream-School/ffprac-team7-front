@@ -20,7 +20,7 @@ function App() {
       element: <Index />
     },
     {
-      path: "/itemDetails",
+      path: "/item/:id",
       element: <ItemDetails />
     },
     {
@@ -46,4 +46,4 @@ function App() {
 
 }
 
-export default App
+export default App;
