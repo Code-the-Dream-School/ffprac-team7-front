@@ -33,7 +33,7 @@ function App() {
       element: <NewItemPage/>
     },
     {
-      path: `/item/:id/claim`,
+      path: "/item/:id/claim",
       element: <ItemClaim/>
     }
 
