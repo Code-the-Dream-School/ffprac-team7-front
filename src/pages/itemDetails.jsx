@@ -3,6 +3,8 @@ import "../styles/itemDetails.css";
 import placeHolder from "../assets/placeholder.svg"
 import mapPin from "../assets/mapPin.svg"
 import {useParams} from "react-router-dom"
+import {Link} from "react-router-dom";
+
 
 
 
@@ -125,7 +127,9 @@ const currentItem = reportedItems.find((item) => item.id === parseInt(id));
                 </p>
 
                 <div className='claimButtonContainer'>
-                    <button className='button'> Claim </button>
+                   <Link to={`/item/${currentItem.id}/claim`} className="button">
+            Claim
+          </Link>
                 </div>  
             </div>
         </div>

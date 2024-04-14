@@ -4,6 +4,7 @@ import { Home } from './pages/home';
 import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import { ItemDetails } from './pages/itemDetails';
+import ItemClaim from './pages/ItemClaim';
 import Items from './pages/Items'
 
 
@@ -30,6 +31,10 @@ function App() {
     {
       path: "/reportNewItem",
       element: <NewItemPage/>
+    },
+    {
+      path: `/item/:id/claim`,
+      element: <ItemClaim/>
     }
 
   ]);
