@@ -1,12 +1,14 @@
 import React from "react";
 import './header.css';
+import HamburgerMenu from "./HamburgerMenu";
 
 const Header = ({pageTitle}) => {
     return(
+        
         <div className='header-container'>
-            <div className='menu-icon'>&#9776;</div> 
+            <HamburgerMenu/>
             <h1 className='logo'>{pageTitle || "StuffFindr"}</h1>
-        </div>
+        </div> 
     )
 }
 

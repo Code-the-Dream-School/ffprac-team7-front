@@ -9,6 +9,8 @@ const ImageUpload = () => {
         return localStorage.getItem('photoURL') || DefaultImage;
     });
 
+    console.log(photoURL)
+
     const fileUploadRef = useRef();
 
     const handleImageUpload = (event) => {
@@ -18,11 +20,12 @@ const ImageUpload = () => {
 
     const uploadImageDisplay = () => {
         const uploadedFile = fileUploadRef.current.files[0];
-
         const cachedURL = URL.createObjectURL(uploadedFile);
-
         setPhotoURL(cachedURL);
         localStorage.setItem('photoURL', cachedURL);
+        console.log(uploadedFile);
+        console.log(cachedURL);
+        console.log()
     }
 
     useEffect(() => {
