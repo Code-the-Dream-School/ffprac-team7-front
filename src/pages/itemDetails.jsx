@@ -4,7 +4,7 @@ import "../styles/itemDetails.css";
 import placeHolder from "../assets/placeholder.svg"
 import mapPin from "../assets/mapPin.svg"
 
-export function ItemDetails() {
+const ItemDetails = () => {
     return (
         <div>
             <Header pageTitle="Item Details"/>
@@ -32,3 +32,5 @@ export function ItemDetails() {
         </div>
     )
 }
+
+export default ItemDetails;

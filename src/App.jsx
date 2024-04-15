@@ -3,11 +3,12 @@ import { createBrowserRouter, RouterProvider, Routes, Route } from "react-router
 import { Home } from './pages/home';
 import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
-import { ItemDetails } from './pages/itemDetails';
+import  ItemDetails  from './pages/itemDetails';
 import Items from './pages/Items'
 
 
 import './App.css'
+import SignupPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
@@ -30,11 +31,19 @@ function App() {
     },
     {
       path: "/reportedItems",
-      element: <Items/>
+      element: <Items />
     },
     {
       path: "/reportNewItem",
-      element: <NewItemPage/>
+      element: <NewItemPage />
+    },
+    {
+      path: "/SignUpPage",
+      element: <SignupPage />
+    },
+    {
+      path: "/LoginPage",
+      element: <LoginPage />
     }
 
   ]);
