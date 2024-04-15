@@ -110,17 +110,18 @@ const [proveOwnership, setProveOwnership] = useState("");
         <div>
             <Header pageTitle="Claim Item" />
             <div className="claimPageContainer">
-    <img src={currentItem.photo}/>
-    <h2>{currentItem.title}</h2>
+  <div className="imgItemContainer" ><img className="imgItem" src={currentItem.photo}/></div>
+    <h2 className="itemTitle">{currentItem.title}</h2>
     <form>
         <label htmlFor="proveOwnership">Provide some unique info about item proving ownership</label>
         <textarea
         id="claim"
         value={proveOwnership}
+        className="claimText"
         onChange={(e)=>setProveOwnership(e.target.value)}
 
         />
-        <button>Submit Claim</button>
+        <button className="submitClaimButton">Submit Claim</button>
 
     </form>
     </div>
