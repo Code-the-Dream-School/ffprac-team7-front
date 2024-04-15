@@ -5,9 +5,6 @@ import mapPin from "../assets/mapPin.svg"
 import {useParams} from "react-router-dom"
 import {Link} from "react-router-dom";
 
-
-
-
 const reportedItems =
   [
     {
@@ -101,11 +98,12 @@ const reportedItems =
     },
   ];
 
-export default function ItemDetails() {
+function ItemDetails() {
 
 const {id} = useParams();
 const currentItem = reportedItems.find((item) => item.id === parseInt(id));
- 
+
+const ItemDetails = () => {
     return (
         <div>
             <Header pageTitle="Item Details"/>
@@ -135,3 +133,5 @@ const currentItem = reportedItems.find((item) => item.id === parseInt(id));
         </div>
     )
 }
+
+export default ItemDetails;
