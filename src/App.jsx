@@ -5,6 +5,7 @@ import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import  ItemDetails  from './pages/itemDetails';
 import Items from './pages/Items'
+import ItemClaim from './pages/ItemClaim';
 
 
 import './App.css'

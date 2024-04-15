@@ -101,7 +101,7 @@ const reportedItems =
     },
   ];
 
-export function ItemDetails() {
+export default function ItemDetails() {
 
 const {id} = useParams();
 const currentItem = reportedItems.find((item) => item.id === parseInt(id));
