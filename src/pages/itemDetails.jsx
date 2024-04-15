@@ -103,7 +103,6 @@ function ItemDetails() {
 const {id} = useParams();
 const currentItem = reportedItems.find((item) => item.id === parseInt(id));
 
-const ItemDetails = () => {
     return (
         <div>
             <Header pageTitle="Item Details"/>
