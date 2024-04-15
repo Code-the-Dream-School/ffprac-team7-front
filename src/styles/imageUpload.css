@@ -1,0 +1,22 @@
+.defaultImg {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin-top: -20px;
+    margin-bottom: -5px;
+}
+
+.editBtn {
+    height: 15px;
+    width: 15px;
+    position: relative;
+    left: 85px;
+    bottom: 30px;
+
+}
+
+.uploadBtn {
+    border: hidden;
+    background: white;
+    padding: 1px;
+}
