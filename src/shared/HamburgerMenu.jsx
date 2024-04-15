@@ -6,16 +6,15 @@ import "../styles/HamburgerMenu.css"
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-const currentLocation = useLocation();
+
 
   const toggleMenu = () => {
     console.log("menu called")
     setIsOpen(!isOpen);
-    console.log(currentLocation.pathname)
   };
 
   return (
-    <div className="hamburger-menu">
+    <div className={`hamburger-menu ${isOpen ? 'close' : ''}`}>
       <div
         className= "hamburger-icon"
         onClick={toggleMenu}

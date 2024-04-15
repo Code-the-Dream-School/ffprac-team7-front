@@ -1,10 +1,8 @@
 import React from "react";
-import Header from "../shared/header";
-import ItemCard from "../shared/ItemCard";
-import "../styles/Items.css";
-import {Link} from "react-router-dom";
+import Header from "../shared/header"
 import { useState } from "react";
-
+import { useParams } from "react-router-dom";
+import "../styles/ItemClaim.css"
 
 const reportedItems =
   [
@@ -99,27 +97,40 @@ const reportedItems =
     },
   ];
 
-const Items = () => {
 
-  return (
-    <div>
-      <Header pageTitle="Reported Items" />
-      <div className="reportedItemsContainer">
-        {reportedItems.map((item) => (
-           <Link key={item.id} to={`/item/${item.id}`}>
-          <ItemCard
-            key={item.id}
-            photo={item.photo}
-            title={item.title}
-            dateLostFound={item.dateLostFound}
-            id={item.id}
-            onClick={() => handleItemClick(item.id)}
-          /> </Link>
-        ))}
-        
-      </div>
+const ItemClaim = () =>{
+
+    const {id} = useParams();
+
+const currentItem = reportedItems.find((item) => item.id === parseInt(id));
+
+const [proveOwnership, setProveOwnership] = useState("");
+
+    return (
+        <div>
+            <Header pageTitle="Claim Item" />
+            <div className="claimPageContainer">
+  <div className="imgItemContainer" ><img className="imgItem" src={currentItem.photo}/></div>
+    <h2 className="itemTitle">{currentItem.title}</h2>
+    <form>
+        <label htmlFor="proveOwnership">Provide some unique info about item proving ownership</label>
+        <textarea
+        id="claim"
+        value={proveOwnership}
+        className="claimText"
+        onChange={(e)=>setProveOwnership(e.target.value)}
+
+        />
+        <button className="submitClaimButton">Submit Claim</button>
+
+    </form>
     </div>
-  );
-};
 
-export default Items;
+        </div>
+
+    )
+}
+
+
+export default ItemClaim;
+
