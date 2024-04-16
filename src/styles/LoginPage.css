@@ -30,7 +30,7 @@
     height: 30px;   
 }
 
-label{
+.fieldLabel{
     display: block;
     font-size: 18px;
     font-weight: 400;
