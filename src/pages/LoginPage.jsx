@@ -7,16 +7,22 @@ function LoginPage() {
     return(
         <div>
             <Header />
-                <h2 className="greetingContainer" >Welcome to StuffFindr</h2>
+            <h3 className="greetingContainer" >Welcome to StuffFindr</h3>
             <div className="LoginPageContainer">
-                <h2>Log In</h2>
-                <div className="inputContainer">
-                    <label className="fieldLabel">UserName</label>
-                        <input className="inputField" type='text'  disabled />
-                    <label className="fieldLabel">Password</label>
-                        <input className="inputField" type='password'  disabled />
+                <h2 className="LoginHeader">Log In</h2>
+                
+                <div className="userNameContainer">
+                    <label className="fieldLabel" htmlFor="userName">Username</label>
+                    <input className="inputField" type='text' id="username" disabled />
                 </div>
-                <p>Don't have an account? <Link to="/SignUpPage">Sign up</Link></p>
+                <div className="passwordContainer">
+                    <label className="fieldLabel" htmlFor="password">Password</label>
+                    <div className='passwordInputContainer'>
+                        <input className="inputField" type='password' disabled/>
+                        {/* password eye icon here? */}
+                    </div>
+                </div>
+                <p className="signUpBlurb">Don't have an account? <Link to="/SignUpPage">Sign up</Link></p>
                 <button className="logInBtn" disabled>Log In</button>
             </div>
         </div>

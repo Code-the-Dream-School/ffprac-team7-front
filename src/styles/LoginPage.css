@@ -6,15 +6,19 @@
     align-items: center;
     font-family: Poppins;
 }
-
 .greetingContainer{
-    display: inline;
-    padding: 40px;
-    font-family: Poppins;
-}
-.inputField{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 2rem 0rem 2rem 0rem;
+    font-family: Poppins;
+}
+.LoginHeader{
+    width: 285px;
+}
+.inputField{
+    
+
     background: #E5E5E5;
     border-radius: 33px;
     font-style: normal;
@@ -22,27 +26,20 @@
     font-size: 18px;
     line-height: 22px;
     color: #666666;
-    padding-left: 15px;
     width: 285px;
     height: 30px;   
 }
 
 label{
     display: block;
-    font-family: Poppins;
     font-size: 18px;
     font-weight: 400;
     color: #0C2D57;
-    margin-bottom: 10px;
+    margin: 1rem 0rem 1rem 0rem;
 }
 
-.logInBtn{
-    width: 140px;
-    height: 33px;
-    background: #3B3486;
-    border-radius: 6px;
-    font-family: 'Poppins';
-    font-size: 18px;
-    color: #FFFFFF;
-    margin-top: 30px    
+.signUpBlurb{
+    font-size: medium;
+    padding: 1rem 0rem 1rem 0rem;
 }
+
