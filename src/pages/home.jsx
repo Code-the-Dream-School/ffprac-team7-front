@@ -1,8 +1,15 @@
 import Header from "../shared/header";
 import "../styles/homePage.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const showToast = () => {
+    toast("Hello World!", {
+    })
+};
 
 export function Home() {
+
     return (
         <div >
             <div>
@@ -17,6 +24,7 @@ export function Home() {
                     <button className="logInBtn" disabled>Log In</button>
                     <button className="signUpBtn" disabled>Sign Up</button>
                 </div>
+                <button onClick={showToast}>Toast Alert</button>
             </div>
         </div>
     );
