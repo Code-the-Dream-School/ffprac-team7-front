@@ -21,7 +21,7 @@ function SignupPage() {
                     <input className="inputPassword" type='password' placeholder='Password' disabled />
                 </div>
                 <p>Already have an account? <Link to="/LoginPage">Log In</Link></p>
-                <button className="signUpBtn" disabled>Submit</button>
+                <button className="submitBtn" disabled>Submit</button>
             </div>
         </div>
     );
