@@ -1,0 +1,76 @@
+
+.claimPageContainer{
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ justify-content: center;
+ column-gap: 10px;
+ padding: 40px;
+
+}
+
+.imgItemContainer {
+    display: inline-flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        width: 197px;
+        height: 173px;
+}
+
+.imgItem{
+width: 100%;
+height: 100%;
+        border-radius: 33px;
+}
+
+.itemTitle {
+    display: block;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 400;
+        color: #0C2D57;
+        margin-bottom: 10px;
+        
+}
+
+label {
+    display: block;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 300;
+        color: #0C2D57;
+        margin-bottom: 10px;
+}
+
+.claimText {
+    background: #E5E5E5;
+        border-radius: 25px;
+        width: 262px;
+        height: 91px;
+        margin-bottom: 40px;
+        border: none;
+        padding: 15px;
+        font-family: "Quicksand", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 18px;
+   
+     
+}
+
+.submitClaimButton{
+    background-color: #3B3486;
+        color: white;
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 400;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+   
+}

@@ -5,6 +5,7 @@ import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
 import  ItemDetails  from './pages/itemDetails';
 import Items from './pages/Items'
+import ItemClaim from './pages/ItemClaim';
 
 
 import './App.css'
@@ -26,7 +27,7 @@ function App() {
       element: <Index />
     },
     {
-      path: "/itemDetails",
+      path: "/item/:id",
       element: <ItemDetails />
     },
     {
@@ -44,6 +45,10 @@ function App() {
     {
       path: "/LoginPage",
       element: <LoginPage />
+    },
+    {
+      path: "/item/:id/claim",
+      element: <ItemClaim/>
     }
 
   ]);
@@ -60,4 +65,4 @@ function App() {
 
 }
 
-export default App
+export default App;

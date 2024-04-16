@@ -10,7 +10,6 @@ const ImageUpload = () => {
     });
 
     console.log(photoURL)
-
     const fileUploadRef = useRef();
 
     const handleImageUpload = (event) => {
