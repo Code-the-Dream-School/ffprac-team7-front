@@ -22,6 +22,10 @@ function App() {
       element: <Home />
     },
     {
+      path: "/LoginPage",
+      element: <LoginPage />
+    },
+    {
       path: "/indexPage",
       element: <Index />
     },
