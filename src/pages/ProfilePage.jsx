@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import Header from "../shared/header";
-import { useParams } from "react-router-dom";
+import "../styles/ProfilePage.css"
+import DefaultImage from "../assets/profilePicture.svg";
+
 
 const profiles = [
   {
-    profilePicture: "path/to/profile_picture1.jpg",
+    profilePicture: false,
     name: "John Doe",
     contactNumber: "+1234567890",
     email: "john.doe@example.com",
@@ -39,24 +41,25 @@ const profiles = [
 
 const ProfilePage = () => {
 
-    const {id} = useParams();
-const currentProfiles = profiles.find((item) => item.id === parseInt(id));
+const [currentProfile, setCurrentProfile] = useState(profiles[0])
+
 
   return (
     <div>
       <Header pageTitle={'Profile Information'} />
       <div className="profileInfoContainer">
-        {currentProfiles.map((profile) => (
-          <div key={profile.id}>  
-            <img src={profile.profilePicture} />
-            <h3>Name </h3> 
-            <p>{profile.name}</p>
-            <h3>Contact Number</h3> 
-            <p>{profile.contactNumber}</p>
-            <h3>Email</h3>
-            <p>{profile.email}</p> 
+
+          <div key={currentProfile.id}>  
+            <img className="imgProfile" src={currentProfile.profilePicture || DefaultImage}/>
+            <h3 className="profileLabel">Name </h3> 
+            <p className="profileInfo">{currentProfile.name}</p>
+            <h3 className="profileLabel" >Contact Number</h3> 
+            <p className="profileInfo">{currentProfile.contactNumber}</p>
+            <h3 className="profileLabel" >Email</h3>
+            <p className="profileInfo">{currentProfile.email}</p> 
+            <button className="updateButton">Update Info</button>
           </div>
-        ))}
+
       </div>
     </div>
   );
