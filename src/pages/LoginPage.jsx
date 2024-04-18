@@ -4,13 +4,13 @@ import Header from "../shared/header";
 import "../styles/LoginPage.css";
 
 function LoginPage() {
-    return(
+    return (
         <div>
             <Header />
-            <h3 className="greetingContainer" >Welcome to StuffFindr</h3>
+            <p className="greetingContainer" >Welcome Back!</p>
             <div className="LoginPageContainer">
                 <h2 className="LoginHeader">Log In</h2>
-                
+
                 <div className="userNameContainer">
                     <label className="fieldLabel" htmlFor="userName">Username</label>
                     <input className="inputField" type='text' id="username" disabled />
@@ -18,7 +18,7 @@ function LoginPage() {
                 <div className="passwordContainer">
                     <label className="fieldLabel" htmlFor="password">Password</label>
                     <div className='passwordInputContainer'>
-                        <input className="inputField" type='password' disabled/>
+                        <input className="inputField" type='password' disabled />
                         {/* password eye icon here? */}
                     </div>
                 </div>
