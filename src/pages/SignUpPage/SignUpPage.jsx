@@ -20,7 +20,7 @@ function SignupPage() {
                     <input className="inputEmail" type='text' placeholder='Email' disabled />
                     <input className="inputPassword" type='password' placeholder='Password' disabled />
                 </div>
-                <p>Already have an account? <Link to="/LoginPage">Log In</Link></p>
+                <p className="linkToLogIn">Already have an account? <Link to="/LoginPage">Log In</Link></p>
                 <button className="submitBtn" disabled>Submit</button>
             </div>
         </div>

@@ -106,12 +106,12 @@ const Items = () => {
       <Header pageTitle="Reported Items" />
       <div className="reportedItemsContainer">
         {reportedItems.map((item) => (
-           <Link key={item.id} to={`/item/${item.id}`}>
+           <Link className="linkStyle"key={item.id} to={`/item/${item.id}`}>
           <ItemCard
             key={item.id}
             photo={item.photo}
             title={item.title}
-            dateLostFound={item.dateLostFound}
+          dateLostFound={item.dateLostFound}
             id={item.id}
             onClick={() => handleItemClick(item.id)}
           /> </Link>
