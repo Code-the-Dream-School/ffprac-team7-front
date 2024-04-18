@@ -56,6 +56,8 @@ function LoginPage() {
                             onChange={handlePasswordChange}
                             autoComplete="current-password"
                         />
+
+                        {/* The below error message should be executed in react toastify instead */}
                         {!isPasswordValid && (
                             <p className="passwordError">Password must contain at least one capital and lowercase letter, one number, one symbol, and must be at least 8 characters long.</p>
                         )}
