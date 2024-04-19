@@ -44,8 +44,7 @@ text-decoration: none;
 }
 
 .searchContainer{
-align-items: center;
-padding: 0rem 0rem 0rem 0rem;
+  display: ruby-text ;
 }
 
 .searchField{

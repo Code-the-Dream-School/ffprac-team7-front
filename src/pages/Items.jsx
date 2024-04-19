@@ -121,7 +121,7 @@ const reportedItems =
           <input
             className="searchField"
             type="text"
-            placeholder="Search title or date"
+            placeholder="Search: title or date"
             value={filter}
             onChange={handleFilterChange}
           />
