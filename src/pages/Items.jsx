@@ -6,6 +6,8 @@ import {Link} from "react-router-dom";
 import { useState } from "react";
 
 
+// I think there is logic somewhere dictating year-month-day
+
 const reportedItems =
   [
     {
@@ -99,27 +101,62 @@ const reportedItems =
     },
   ];
 
-const Items = () => {
 
-  return (
-    <div>
-      <Header pageTitle="Reported Items" />
-      <div className="reportedItemsContainer">
-        {reportedItems.map((item) => (
-           <Link className="linkStyle"key={item.id} to={`/item/${item.id}`}>
-          <ItemCard
-            key={item.id}
-            photo={item.photo}
-            title={item.title}
-          dateLostFound={item.dateLostFound}
-            id={item.id}
-            onClick={() => handleItemClick(item.id)}
-          /> </Link>
-        ))}
-        
+  const Items = () => {
+    const [filters, setFilters] = useState({
+      date: "",
+      title: "",
+    });
+ 
+    const handleFilterChange = (event) => {
+      const { name, value } = event.target;
+      setFilters({
+        ...filters,
+        [name]: value,
+      });
+    };
+ 
+    const filteredItems = reportedItems.filter((item) => {
+      const titleMatch = item.title.toLowerCase().includes(filters.title.toLowerCase());
+      const dateMatch = item.dateLostFound.includes(filters.date);
+      return titleMatch && dateMatch;
+    });
+ 
+    return (
+      <div>
+        <Header pageTitle="Reported Items" />
+        <div className="searchContainer">
+          <input
+            className="searchField"
+            type="text"
+            name="title"
+            placeholder="Search"
+            value={filters.title}
+            onChange={handleFilterChange}
+          />
+          {/* <input
+            type="date"
+            name="date"
+            value={filters.date}
+            onChange={handleFilterChange}
+          /> */}
+        </div>
+          <div className="reportedItemsContainer">
+          {filteredItems.map((item) => (
+            <Link key={item.id} to={`/item/${item.id}`}>
+              <ItemCard
+                key={item.id}
+                photo={item.photo}
+                title={item.title}
+                dateLostFound={item.dateLostFound}
+                id={item.id}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
+ 
+  export default Items;
 
-export default Items;
