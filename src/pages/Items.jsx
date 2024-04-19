@@ -2,11 +2,9 @@ import React from "react";
 import Header from "../shared/header";
 import ItemCard from "../shared/ItemCard";
 import "../styles/Items.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
-
-// I think there is logic somewhere dictating year-month-day
 
 const reportedItems =
   [
@@ -103,25 +101,19 @@ const reportedItems =
 
 
   const Items = () => {
-    const [filters, setFilters] = useState({
-      date: "",
-      title: "",
-    });
- 
+    const [filter, setFilter] = useState("");
+  
     const handleFilterChange = (event) => {
-      const { name, value } = event.target;
-      setFilters({
-        ...filters,
-        [name]: value,
-      });
+      const { value } = event.target;
+      setFilter(value);
     };
- 
+  
     const filteredItems = reportedItems.filter((item) => {
-      const titleMatch = item.title.toLowerCase().includes(filters.title.toLowerCase());
-      const dateMatch = item.dateLostFound.includes(filters.date);
-      return titleMatch && dateMatch;
+      const titleMatch = item.title.toLowerCase().includes(filter.toLowerCase());
+      const dateMatch = item.dateLostFound.includes(filter);
+      return titleMatch || dateMatch;
     });
- 
+  
     return (
       <div>
         <Header pageTitle="Reported Items" />
@@ -129,19 +121,12 @@ const reportedItems =
           <input
             className="searchField"
             type="text"
-            name="title"
-            placeholder="Search"
-            value={filters.title}
+            placeholder="Search title or date"
+            value={filter}
             onChange={handleFilterChange}
           />
-          {/* <input
-            type="date"
-            name="date"
-            value={filters.date}
-            onChange={handleFilterChange}
-          /> */}
         </div>
-          <div className="reportedItemsContainer">
+        <div className="reportedItemsContainer">
           {filteredItems.map((item) => (
             <Link key={item.id} to={`/item/${item.id}`}>
               <ItemCard
@@ -157,6 +142,5 @@ const reportedItems =
       </div>
     );
   };
- 
+  
   export default Items;
-
