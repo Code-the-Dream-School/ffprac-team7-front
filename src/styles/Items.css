@@ -19,16 +19,25 @@
   border-radius: 7px;
 }
 
-.ItemCard h3 {
+.itemTitle {
   margin-top: 0px;
   margin-bottom: 0px;
   font-family: "Poppins";
   color: #0C2D57;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
+  text-decoration: none;
+  
 }
 
-.ItemCard p {
+.linkStyle{
+text-decoration: none;
+}
+
+
+
+
+.dateLostFound {
   position: absolute;
   margin-top: 0px;
   color: #0C2D57;
