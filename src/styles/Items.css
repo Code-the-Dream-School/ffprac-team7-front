@@ -59,5 +59,10 @@ text-decoration: none;
   font-style: normal;
 }
 
+.noResultsMessage{
+  padding: 10rem 0rem 0rem 0rem;
+ font-size: 2em; 
+ text-align: center;
+}
 
 

@@ -107,13 +107,13 @@ const reportedItems =
       const { value } = event.target;
       setFilter(value);
     };
-  
+    
     const filteredItems = reportedItems.filter((item) => {
       const titleMatch = item.title.toLowerCase().includes(filter.toLowerCase());
       const dateMatch = item.dateLostFound.includes(filter);
       return titleMatch || dateMatch;
     });
-  
+    
     return (
       <div>
         <Header pageTitle="Reported Items" />
@@ -124,8 +124,11 @@ const reportedItems =
             placeholder="Search: title or date"
             value={filter}
             onChange={handleFilterChange}
-          />
+            />
         </div>
+        {filteredItems.length === 0 ? (
+          <div className="noResultsMessage">No Results Found</div>
+         ):( 
         <div className="reportedItemsContainer">
           {filteredItems.map((item) => (
             <Link key={item.id} to={`/item/${item.id}`}>
@@ -135,10 +138,11 @@ const reportedItems =
                 title={item.title}
                 dateLostFound={item.dateLostFound}
                 id={item.id}
-              />
+                />
             </Link>
           ))}
         </div>
+      )}
       </div>
     );
   };
