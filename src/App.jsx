@@ -6,6 +6,7 @@ import { Index } from './pages/indexPage';
 import ItemDetails from './pages/itemDetails';
 import Items from './pages/Items'
 import ItemClaim from './pages/ItemClaim';
+import ProfilePage from './pages/ProfilePage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -52,6 +53,10 @@ function App() {
     {
       path: "/item/:id/claim",
       element: <ItemClaim />
+    },
+    {
+      path:"/profilePage",
+      element:<ProfilePage/>
     }
 
   ]);
