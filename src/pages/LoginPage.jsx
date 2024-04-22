@@ -46,8 +46,9 @@ function LoginPage() {
 
             if (response.ok) {
                 // Items page goes to an error? Does not exist?
-                navigateTo('/Items');
+                navigateTo("/Items");
             } else {
+                // Toast error message not working as expected possibly due to the backend not sending the appropriate error responses based on the login request
                 const errorMessage = await response.text();
                 if (errorMessage.includes('username')) {
                     toast("Username is incorrect", {});
@@ -57,9 +58,12 @@ function LoginPage() {
                     toast("Username and password do not exist. Sign up and create an account.", {});
                 }
             }
+
         } catch (error) {
             console.error('Login failed:', error.message);
+
         }
+
     };
 
     return (
