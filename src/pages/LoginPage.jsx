@@ -45,6 +45,7 @@ function LoginPage() {
             });
 
             if (response.ok) {
+                // Items page goes to an error? Does not exist?
                 navigateTo('/Items');
             } else {
                 const errorMessage = await response.text();
