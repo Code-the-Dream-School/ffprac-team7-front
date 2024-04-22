@@ -1,24 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.LoginPageContainer{
+.LoginPageContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Poppins;
 }
-.greetingContainer{
+
+.greetingContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 2rem 0rem 2rem 0rem;
     font-family: Poppins;
+    font-size: 22px;
+    color: black
 }
-.LoginHeader{
+
+.LoginHeader {
     width: 285px;
 }
-.inputField{
-    
 
+.inputField {
     background: #E5E5E5;
     border-radius: 33px;
     font-style: normal;
@@ -27,10 +30,10 @@
     line-height: 22px;
     color: #666666;
     width: 285px;
-    height: 30px;   
+    height: 30px;
 }
 
-.fieldLabel{
+.fieldLabel {
     display: block;
     font-size: 18px;
     font-weight: 400;
@@ -38,8 +41,15 @@
     margin: 1rem 0rem 1rem 0rem;
 }
 
-.signUpBlurb{
+.passwordContainer {
+    margin-left: 25px;
+}
+
+.eyeIcon {
+    color: black
+}
+
+.signUpBlurb {
     font-size: medium;
     padding: 1rem 0rem 1rem 0rem;
 }
-

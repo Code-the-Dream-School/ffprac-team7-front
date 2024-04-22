@@ -9,7 +9,6 @@ const ImageUpload = () => {
         return localStorage.getItem('photoURL') || DefaultImage;
     });
 
-    // console.log(photoURL)
     const fileUploadRef = useRef();
 
     const handleImageUpload = (event) => {
