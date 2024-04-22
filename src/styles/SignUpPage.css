@@ -24,8 +24,9 @@ h2 {
 .inputContainer {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 .inputName,
@@ -49,10 +50,11 @@ h2 {
 }
 
 .linkToLogIn {
-    left: 13.07%;
-    right: 13.6%;
-    top: 72.26%;
-    bottom: 24.29%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
 
     font-style: normal;
     font-weight: 400;
@@ -61,8 +63,15 @@ h2 {
     color: #666666;
 }
 
-.submitBtn {
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
 
+.submitBtn {
     width: 140px;
     height: 33px;
     background: #3B3486;
@@ -70,5 +79,10 @@ h2 {
     font-family: 'Poppins';
     font-size: 18px;
     color: #FFFFFF;
-    margin-top: 30px
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.error{
+    color: red;
 }
