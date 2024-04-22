@@ -3,21 +3,28 @@ import { createBrowserRouter, RouterProvider, Routes, Route } from "react-router
 import { Home } from './pages/home';
 import NewItemPage from './pages/NewItemPage';
 import { Index } from './pages/indexPage';
-import  ItemDetails  from './pages/itemDetails';
+import ItemDetails from './pages/itemDetails';
 import Items from './pages/Items'
 import ItemClaim from './pages/ItemClaim';
 import ProfilePage from './pages/ProfilePage';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css'
+
 import SignupPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
   const router = createBrowserRouter([
+
     {
       path: "/",
       element: <Home />
+    },
+    {
+      path: "/LoginPage",
+      element: <LoginPage />
     },
     {
       path: "/indexPage",
@@ -45,7 +52,7 @@ function App() {
     },
     {
       path: "/item/:id/claim",
-      element: <ItemClaim/>
+      element: <ItemClaim />
     },
     {
       path:"/profilePage",
@@ -57,13 +64,24 @@ function App() {
   return (
     <div className="app">
 
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
+
       <RouterProvider router={router}>router </RouterProvider>
 
     </div>
-
-
   );
-
 }
 
 export default App;

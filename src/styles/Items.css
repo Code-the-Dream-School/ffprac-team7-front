@@ -19,16 +19,22 @@
   border-radius: 7px;
 }
 
-.ItemCard h3 {
+.itemTitle {
   margin-top: 0px;
   margin-bottom: 0px;
   font-family: "Poppins";
   color: #0C2D57;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
+  text-decoration: none;
+  
 }
 
-.ItemCard p {
+.linkStyle{
+text-decoration: none;
+}
+
+.dateLostFound {
   position: absolute;
   margin-top: 0px;
   color: #0C2D57;
@@ -36,3 +42,27 @@
   font-weight: 300;
   font-size: 12px;
 }
+
+.searchContainer{
+  display: ruby-text ;
+}
+
+.searchField{
+  margin: 2rem 0rem 0rem 0rem;
+  background: #E5E5E5;
+  border-radius: 33px;
+  width: 268px;
+  height: 37px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #666666;
+  font-style: normal;
+}
+
+.noResultsMessage{
+  padding: 10rem 0rem 0rem 0rem;
+ font-size: 2em; 
+ text-align: center;
+}
+
+
