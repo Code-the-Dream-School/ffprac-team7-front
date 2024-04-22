@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../shared/header";
 import ItemCard from "../shared/ItemCard";
 import "../styles/Items.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 
@@ -99,27 +99,52 @@ const reportedItems =
     },
   ];
 
-const Items = () => {
 
-  return (
-    <div>
-      <Header pageTitle="Reported Items" />
-      <div className="reportedItemsContainer">
-        {reportedItems.map((item) => (
-           <Link key={item.id} to={`/item/${item.id}`}>
-          <ItemCard
-            key={item.id}
-            photo={item.photo}
-            title={item.title}
-            dateLostFound={item.dateLostFound}
-            id={item.id}
-            onClick={() => handleItemClick(item.id)}
-          /> </Link>
-        ))}
-        
+  const Items = () => {
+    const [filter, setFilter] = useState("");
+  
+    const handleFilterChange = (event) => {
+      const { value } = event.target;
+      setFilter(value);
+    };
+    
+    const filteredItems = reportedItems.filter((item) => {
+      const titleMatch = item.title.toLowerCase().includes(filter.toLowerCase());
+      const dateMatch = item.dateLostFound.includes(filter);
+      return titleMatch || dateMatch;
+    });
+    
+    return (
+      <div>
+        <Header pageTitle="Reported Items" />
+        <div className="searchContainer">
+          <input
+            className="searchField"
+            type="text"
+            placeholder="Search: title or date"
+            value={filter}
+            onChange={handleFilterChange}
+            />
+        </div>
+        {filteredItems.length === 0 ? (
+          <div className="noResultsMessage">No Results Found</div>
+         ):( 
+        <div className="reportedItemsContainer">
+          {filteredItems.map((item) => (
+            <Link key={item.id} to={`/item/${item.id}`}>
+              <ItemCard
+                key={item.id}
+                photo={item.photo}
+                title={item.title}
+                dateLostFound={item.dateLostFound}
+                id={item.id}
+                />
+            </Link>
+          ))}
+        </div>
+      )}
       </div>
-    </div>
-  );
-};
-
-export default Items;
+    );
+  };
+  
+  export default Items;
