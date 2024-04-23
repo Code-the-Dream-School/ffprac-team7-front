@@ -16,6 +16,32 @@ import SignupPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [token, setToken] = useState("");
+  const [profileImgUrl, setProfileImgUrl] = useState("");
+  const [userId, setUserId] = useState("");
+  // This function sets all of the above states based on the user login input. Stored profileInfo is coming from the backend.
+  function updateUserInfo(profileInfo) {
+
+    if (profileInfo.username) {
+      setUsername(profileInfo.username)
+    }
+    if (profileInfo.token) {
+      setToken(profileInfo.token)
+    }
+    if (profileInfo.userId) {
+      setUserId(profileInfo.userId)
+    }
+    if (profileInfo.email) {
+      setEmail(profileInfo.email)
+    }
+    if (profileInfo.profilePicture) {
+      setProfileImgUrl(profileInfo.profilePicture)
+    }
+  }
+
   const router = createBrowserRouter([
 
     {
@@ -24,7 +50,7 @@ function App() {
     },
     {
       path: "/LoginPage",
-      element: <LoginPage />
+      element: <LoginPage setUserInfo={updateUserInfo} />
     },
     {
       path: "/indexPage",
@@ -46,6 +72,8 @@ function App() {
       path: "/SignUpPage",
       element: <SignupPage />
     },
+
+    // Is the below code needed or did we create an extra login route by mistake? Check in with Roy.
     {
       path: "/LoginPage",
       element: <LoginPage />
@@ -55,8 +83,8 @@ function App() {
       element: <ItemClaim />
     },
     {
-      path:"/profilePage",
-      element:<ProfilePage/>
+      path: "/profilePage",
+      element: <ProfilePage />
     }
 
   ]);
