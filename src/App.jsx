@@ -14,6 +14,7 @@ import './App.css'
 
 import SignupPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -55,9 +56,15 @@ function App() {
       element: <ItemClaim />
     },
     {
-      path:"/profilePage",
-      element:<ProfilePage/>
+      path: "/profilePage",
+      element: <ProfilePage />
+    },
+    {
+      // Do some research on how to make all error pages lead to this 404 not found page.
+      path: "/NotFoundPage",
+      element: <NotFoundPage />
     }
+
 
   ]);
 
