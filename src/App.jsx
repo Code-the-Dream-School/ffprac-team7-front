@@ -16,6 +16,33 @@ import SignupPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [token, setToken] = useState("");
+  const [profileImgUrl, setProfileImgUrl] = useState("");
+  const [userId, setUserId] = useState("");
+
+  function updateUserInfo(profileInfo){
+
+    if(profileInfo.username){
+      setUsername(profileInfo.username)
+    }
+    if(profileInfo.token){
+      setToken(profileInfo.token)
+    }
+    if(profileInfo.userId){
+      setUserId(profileInfo.userId)
+    }
+    if(profileInfo.email){
+      setEmail(profileInfo.email)
+    }
+    if(profileInfo.profilePicture){
+      setProfileImgUrl(profileInfo.profilePicture)
+    }
+  }
+
+
   const router = createBrowserRouter([
 
     {
@@ -24,7 +51,7 @@ function App() {
     },
     {
       path: "/LoginPage",
-      element: <LoginPage />
+      element: <LoginPage setUserInfo={updateUserInfo}/>
     },
     {
       path: "/indexPage",
@@ -36,7 +63,7 @@ function App() {
     },
     {
       path: "/reportedItems",
-      element: <Items />
+      element: <Items userToken={token} />
     },
     {
       path: "/reportNewItem",

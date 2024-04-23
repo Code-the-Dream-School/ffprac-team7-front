@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Header from "../shared/header";
 import ItemCard from "../shared/ItemCard";
 import "../styles/Items.css";
@@ -99,8 +99,35 @@ const reportedItems =
     },
   ];
 
+const itemsUrl = "http://localhost:8000/api/v1/items"
 
-  const Items = () => {
+const apiToken = "some stuff"
+
+const Items = ({userToken}) => {
+  
+  const headers = {
+    Authorization: `Bearer ${userToken}`,
+    "Content-Type": "application/json",
+  };
+  async function getItems(){
+    const options = {
+      method: "GET",
+      headers: headers
+    }
+
+    const resp = await fetch(itemsUrl, options);
+    if (resp.ok){
+      const items = await resp.json()
+      console.log(items.items[0])
+    } else {
+      console.log("OOPS")
+    }
+  }
+
+  useEffect(() => {
+    getItems()
+  }, [])
+
     const [filter, setFilter] = useState("");
   
     const handleFilterChange = (event) => {

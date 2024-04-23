@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 
-function LoginPage() {
+function LoginPage({setUserInfo}) {
 
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -45,6 +45,9 @@ function LoginPage() {
             });
 
             if (response.ok) {
+                const body = await response.json()
+                console.log("from LoginPage", body)
+                setUserInfo(body)
                 navigateTo("/reportedItems");
             } else {
                 const errorMessage = await response.text();
