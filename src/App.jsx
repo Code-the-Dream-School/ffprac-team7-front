@@ -72,12 +72,6 @@ function App() {
       path: "/SignUpPage",
       element: <SignupPage />
     },
-
-    // Is the below code needed or did we create an extra login route by mistake? Check in with Roy.
-    {
-      path: "/LoginPage",
-      element: <LoginPage />
-    },
     {
       path: "/item/:id/claim",
       element: <ItemClaim />
