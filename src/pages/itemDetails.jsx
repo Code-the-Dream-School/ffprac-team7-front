@@ -107,13 +107,14 @@ const currentItem = reportedItems.find((item) => item.id === parseInt(id));
         <div>
             <Header pageTitle="Item Details"/>
             <div className='itemDetailsContainer'>
-                <img className='itemImage' src={currentItem.photo} alt="Placeholder" />
+                <div className="itemImgContainer"><img className='itemImage' src={currentItem.photo ||placeHolder} alt="Placeholder" /></div>
                 <h2 className='itemName'>{currentItem.title}</h2>
                 <h3 className="description" > Description </h3>
                 <p className="descriptionBox" >{currentItem.description}</p>  
-                <p className='descriptionDetail'> Date Found
+                <p className='descriptionDetail'> Date Found 
                     <span className="descriptionValue"> {currentItem.dateLostFound}</span>
-                </p>
+                    </p>
+    
                 <p className='descriptionDetail'> Location
                     <span className="descriptionValue">{currentItem.location}
                         <span className="mapPin"><img src={mapPin} alt="map pin" /></span>
