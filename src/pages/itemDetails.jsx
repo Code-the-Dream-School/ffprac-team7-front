@@ -116,8 +116,8 @@ const currentItem = reportedItems.find((item) => item.id === parseInt(id));
                     </p>
     
                 <p className='descriptionDetail'> Location
+         
                     <span className="descriptionValue">{currentItem.location}
-                        <span className="mapPin"><img src={mapPin} alt="map pin" /></span>
                     </span>
                 
                 </p>
