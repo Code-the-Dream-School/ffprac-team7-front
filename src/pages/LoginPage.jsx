@@ -8,8 +8,8 @@ import { eye } from 'react-icons-kit/feather/eye';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-
-function LoginPage() {
+// Pass in setUserInfo as a prop from App.js. setUserInfo will be set based on user login input.
+function LoginPage({ setUserInfo }) {
 
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -45,6 +45,10 @@ function LoginPage() {
             });
 
             if (response.ok) {
+                const body = await response.json()
+                // May not need to console.log below. Check with Roy.
+                console.log("from LoginPage", body)
+                setUserInfo(body)
                 navigateTo("/reportedItems");
             } else {
                 const errorMessage = await response.text();
