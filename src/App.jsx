@@ -70,7 +70,7 @@ function App() {
     },
     {
       path: "/SignUpPage",
-      element: <SignupPage />
+      element: <SignupPage setUserInfo={updateUserInfo} />
     },
     {
       path: "/item/:id/claim",
