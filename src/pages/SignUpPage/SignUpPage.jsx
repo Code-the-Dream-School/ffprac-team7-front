@@ -58,7 +58,7 @@ function SignupPage({setUserInfo}) {
                     const body = await response.json()
                     console.log('Signup Successful')
                     setUserInfo(body)
-                    navigateTo("/LoginPage");
+                    navigateTo("/indexPage");
                 } else {
                     const errorMessage = await response.text();
                     console.error('Signup Failed:', errorMessage);
