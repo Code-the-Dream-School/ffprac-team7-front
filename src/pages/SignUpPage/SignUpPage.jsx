@@ -3,14 +3,15 @@ import Header from "../../shared/header";
 import "../../styles/SignUpPage.css";
 import { Link } from "react-router-dom";
 import ImageUpload from "./imageUpload";
+import { useNavigate } from 'react-router-dom';
 
-function SignupPage() {
+function SignupPage({setUserInfo}) {
     // State variables for form inputs
     const [username, setUsername] = useState("");
     const [contactNumber, setContactNumber] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+    const navigateTo = useNavigate();
     // State variables for input validity
     const [usernameValid, setUsernameValid] = useState(false);
     const [contactNumberValid, setContactNumberValid] = useState(false);
@@ -38,13 +39,33 @@ function SignupPage() {
         setPasswordValid(event.target.value.length >= 8 && /[a-z]/.test(event.target.value) && /[A-Z]/.test(event.target.value) && /[0-9]/.test(event.target.value));
     };
 
+   
     // Function to handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         
         if (usernameValid && contactNumberValid && emailValid && passwordValid) {
-            // replace logging to console with logging to backend?
-            console.log("Form submitted:", username, contactNumber, email, password);
+            try{
+                const response = await fetch('http://localhost:8000/api/v1/users/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, contactNumber, email, password }),
+                });
+
+                if (response.ok) {
+                    const body = await response.json()
+                    console.log('Signup Successful')
+                    setUserInfo(body)
+                    navigateTo("/indexPage");
+                } else {
+                    const errorMessage = await response.text();
+                    console.error('Signup Failed:', errorMessage);
+                }
+            } catch (error) {
+                console.error('Signup Failed:', error.message);
+            }
         }
     };
 

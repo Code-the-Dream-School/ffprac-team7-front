@@ -17,6 +17,32 @@ import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [token, setToken] = useState("");
+  const [profileImgUrl, setProfileImgUrl] = useState("");
+  const [userId, setUserId] = useState("");
+  // This function sets all of the above states based on the user login input. Stored profileInfo is coming from the backend.
+  function updateUserInfo(profileInfo) {
+
+    if (profileInfo.username) {
+      setUsername(profileInfo.username)
+    }
+    if (profileInfo.token) {
+      setToken(profileInfo.token)
+    }
+    if (profileInfo.userId) {
+      setUserId(profileInfo.userId)
+    }
+    if (profileInfo.email) {
+      setEmail(profileInfo.email)
+    }
+    if (profileInfo.profilePicture) {
+      setProfileImgUrl(profileInfo.profilePicture)
+    }
+  }
+
   const router = createBrowserRouter([
 
     {
@@ -25,7 +51,7 @@ function App() {
     },
     {
       path: "/LoginPage",
-      element: <LoginPage />
+      element: <LoginPage setUserInfo={updateUserInfo} />
     },
     {
       path: "/indexPage",
@@ -45,11 +71,7 @@ function App() {
     },
     {
       path: "/SignUpPage",
-      element: <SignupPage />
-    },
-    {
-      path: "/LoginPage",
-      element: <LoginPage />
+      element: <SignupPage setUserInfo={updateUserInfo} />
     },
     {
       path: "/item/:id/claim",
@@ -58,11 +80,14 @@ function App() {
     {
       path: "/profilePage",
       element: <ProfilePage />
+<<<<<<< HEAD
     },
     {
       // Do some research on how to make all error pages lead to this 404 not found page.
       path: "/NotFoundPage",
       element: <NotFoundPage />
+=======
+>>>>>>> 8ca40ed62dcf1044ef4b68b07af10d957c3bcfe4
     }
 
 
