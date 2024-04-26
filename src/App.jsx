@@ -14,6 +14,7 @@ import './App.css'
 
 import SignupPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
 
@@ -79,8 +80,11 @@ function App() {
     {
       path: "/profilePage",
       element: <ProfilePage />
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />
     }
-
   ]);
 
   return (
