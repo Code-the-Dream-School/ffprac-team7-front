@@ -80,17 +80,11 @@ function App() {
     {
       path: "/profilePage",
       element: <ProfilePage />
-<<<<<<< HEAD
     },
     {
-      // Do some research on how to make all error pages lead to this 404 not found page.
-      path: "/NotFoundPage",
+      path: "*",
       element: <NotFoundPage />
-=======
->>>>>>> 8ca40ed62dcf1044ef4b68b07af10d957c3bcfe4
     }
-
-
   ]);
 
   return (

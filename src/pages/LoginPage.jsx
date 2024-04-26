@@ -59,9 +59,7 @@ function LoginPage({ setUserInfo }) {
 
         } catch (error) {
             console.error('Login failed:', error.message);
-
         }
-
     };
 
     return (
