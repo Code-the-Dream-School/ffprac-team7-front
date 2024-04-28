@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../shared/header";
 import ItemCard from "../shared/ItemCard";
-import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "../styles/Items.css";
@@ -23,6 +22,7 @@ const Items = () => {
   const fetchItems = async () => {
     try {
       const response = await fetch('http://localhost:8000/api/v1/items', {
+        method: 'GET',
         headers: {
             Authorization:`Bearer ${ encodedToken }`,
         },
@@ -45,12 +45,17 @@ const Items = () => {
     setFilter(value);
   };
 
-  const filteredItems = items.length > 0 ? items.filter((item) => {
+  const handleClearFilter = () => {
+    setFilter("");
+  };
+
+  const filteredItems = items.length === 0 ? items.filter((item) => {
     const titleMatch = item.title.toLowerCase().includes(filter.toLowerCase());
-    const dateMatch = item.dateLostFound.includes(filter);
-    return titleMatch || dateMatch;
+   
+    return filter === "" || titleMatch;
   }) : [];
 
+  console.log(filteredItems)
   return (
     <div>
       <Header pageTitle="Reported Items" />
@@ -62,11 +67,18 @@ const Items = () => {
           value={filter}
           onChange={handleFilterChange}
         />
+        {filter && (
+          <button className="clearFilterButton" onClick={handleClearFilter}>
+            Clear
+          </button>
+        )}
       </div>
+      
       {filteredItems.length === 0 ? (
         <div className="noResultsMessage">No Results Found</div>
       ) : (
         <div className="reportedItemsContainer">
+          
           {filteredItems.map((item) => (
             <ItemCard
               key={item._id}
