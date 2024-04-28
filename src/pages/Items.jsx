@@ -32,7 +32,7 @@ const Items = () => {
       }
       const data = await response.json();
       console.log(data);
-      setItems(data);
+      setItems(data.items || []);
     } catch (error) {
       setError(error.message);
       toast.error('Failed to fetch items');
@@ -49,13 +49,15 @@ const Items = () => {
     setFilter("");
   };
 
-  const filteredItems = items.length === 0 ? items.filter((item) => {
-    const titleMatch = item.title.toLowerCase().includes(filter.toLowerCase());
-   
-    return filter === "" || titleMatch;
-  }) : [];
+  const filteredItems = Array.isArray(items)
+    ? items.filter((item) => {
+        return (
+          item.title && item.title.toLowerCase().includes(filter.toLowerCase())
+        );
+      })
+    : [];
 
-  console.log(filteredItems)
+  console.log()
   return (
     <div>
       <Header pageTitle="Reported Items" />
