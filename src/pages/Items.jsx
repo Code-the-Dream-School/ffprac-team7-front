@@ -51,8 +51,13 @@ const Items = () => {
 
   const filteredItems = Array.isArray(items)
     ? items.filter((item) => {
+      const lowercaseFilter = filter.toLowerCase();
         return (
-          item.title && item.title.toLowerCase().includes(filter.toLowerCase())
+          (item._id && item._id.toLowerCase().includes(lowercaseFilter)) ||
+          (item.location && item.location.toLowerCase().includes(lowercaseFilter)) ||
+          (item.dateReported && item.dateReported.toLowerCase().includes(lowercaseFilter)) ||
+          (item.title && item.title.toLowerCase().includes(lowercaseFilter)) 
+          
         );
       })
     : [];
