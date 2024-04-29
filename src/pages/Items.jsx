@@ -4,7 +4,7 @@ import ItemCard from "../shared/ItemCard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Items.css";
-
+import { Link } from 'react-router-dom';
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjJkNzAzZWJhMzJmNDFjNzg5NTIwMWIiLCJ1c2VybmFtZSI6IlRyZWVTdGFuZCIsImlhdCI6MTcxNDI2OTgwMCwiZXhwIjoxNzE2ODYxODAwfQ.v1kpMaryjcNcDq-3QT-rHXGbT-RhF2UX0oFyq7he4Pw";
 const encodedToken = encodeURIComponent(token);
@@ -100,14 +100,16 @@ const Items = () => {
       ) : (
         <div className="reportedItemsContainer">
           {filteredItems.map((item) => (
-            <ItemCard
-              key={item._id}
-              title={item.title}
-              description={item.description}
-              location={item.location}
-              lost={item.lost}
-              dateReported={item.dateReported}
-            />
+            <Link key={item._id} to={`/item/${item._id}/claim`}>
+              <ItemCard
+                key={item._id}
+                title={item.title}
+                description={item.description}
+                location={item.location}
+                lost={item.lost}
+                dateReported={item.dateReported}
+              />
+            </Link>
           ))}
         </div>
       )}
