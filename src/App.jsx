@@ -79,7 +79,13 @@ function App() {
     },
     {
       path: "/profilePage",
-      element: <ProfilePage />
+      element: <ProfilePage
+        username={username}
+        email={email}
+        token={token}
+        profileImgUrl={profileImgUrl}
+        userId={userId}
+      />
     },
     {
       path: "*",
