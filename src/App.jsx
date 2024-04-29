@@ -58,8 +58,8 @@ function App() {
       element: <Index />
     },
     {
-      path: "/item/:id",
-      element: <ItemDetails />
+      path: "/items/:itemId",
+      element: <ItemDetails token={token} />
     },
     {
       path: "/reportedItems",
