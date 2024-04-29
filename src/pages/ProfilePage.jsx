@@ -108,10 +108,10 @@ const ProfilePage = ({ username, email, token, profileImgUrl, userId }) => {
                 value={updatedUserID}
                 onChange={(e) => setUpdatedUserID(e.target.value)}
               />
-              <button type="button" onClick={handleUpdateProfile} disabled={isLoading}>
+              <button className="updateInfoBtn" type="button" onClick={handleUpdateProfile} disabled={isLoading}>
                 {isLoading ? 'Updating...' : 'Update Info'}
               </button>
-              <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
+              <button className="cancelBtn" type="button" onClick={() => setIsEditing(false)}>Cancel</button>
             </form>
           ) : (
             <div>

@@ -1,32 +1,32 @@
-
-.profileInfoContainer{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  column-gap: 10px;
-  padding: 40px;
+.profileInfoContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    column-gap: 10px;
+    padding: 40px;
 }
 
-.imgProfile{
+.imgProfile {
 
 
-   height: 100px;
-   width: 100px;
-   border-radius: 100%;
-   margin-top: -20px;
-   margin-bottom: -5px;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin-top: -20px;
+    margin-bottom: -5px;
 }
 
-.profileLabel{
-        font-family: Poppins;
-            font-size: 18px;
-            font-weight: 400;
-            color: #0C2D57;
-            margin-bottom: 10px;
+.profileLabel {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    color: #0C2D57;
+    margin-bottom: 10px;
 }
-.profileInfo{
-font-family: "Quicksand",
+
+.profileInfo {
+    font-family: "Quicksand",
         sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -36,15 +36,21 @@ font-family: "Quicksand",
 }
 
 
-.updateButton {
+.updateButton,
+.updateInfoBtn,
+.cancelBtn {
     background-color: #3B3486;
     margin-top: 20px;
     width: 140px;
-        color: white;
-        font-family: Poppins;
-        font-size: 20px;
-        font-weight: 400;
-        border-radius: 100px;
-        border: none;
-        cursor: pointer;
+    color: white;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+.updateInfoBtn {
+    margin-right: 15px;
 }
