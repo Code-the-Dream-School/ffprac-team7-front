@@ -5,48 +5,75 @@ import CameraIcon from "../assets/CameraIcon";
 
 
 
-const NewItemPage = () => {
+const NewItemPage = ({token}) => {
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
-  const [image, setImage] = useState("");
-  const [dateLostFound, setDateLostFound] = useState("");
+  const [lost, setLost] = useState("");
+  const [dateReported, setDateReported] = useState("");
   const [location, setLocation] = useState("")
+  const [error, setError] =useState("")
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
-  };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
 
-  //   console.log("Form submitted:", { title, description, status });
-  //   // Reset to
-  //   setTitle("");
-  //   setDescription("");
-  //   setStatus("");
-  //   setDateLostFound("");
-  //   setImage("");
-  //   setLocation("");
-  // };
+
+
+  const handleAddItem = async(formData) => {
+    
+      try {
+        const response = await fetch('http://localhost:8000/api/v1/items', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${await token}`,
+            },
+            body: formData,
+        });
+
+        if (response.ok) {
+            const body = await response.json();
+            console.log(`Item created successfully ${response.status}, body`);
+        } else {
+            throw new Error(`API request failed ${response.status}`);
+        }
+    } catch (error) {
+        console.error("Error while adding item:", error);
+        alert("Failed to add item. Please try again later.");
+    }
+};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+
+    if (!title || !description || !lost || !dateReported || !location) {
+        setError("All fields are required!");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("lost", lost);
+    formData.append("dateReported", dateReported);
+    formData.append("location", location);
+
+    try {
+     
+        await handleAddItem(formData);
+setLost("")
+    } catch (error) {
+
+        console.error("Error while submitting form:", error);
+        setError("Failed to submit the form. Please try again later.");
+    }
+};
 
   return (
     <div>
       <Header pageTitle="Report an Item"/>
-      <form className="newItemFormContainer" >
+      <form onSubmit={handleSubmit} className="newItemFormContainer" >
            <label htmlFor="image">Attach Image</label>
         <div className="imgInputContainer">
-      
-          <input
-           className="imgInput"
-            type="file"
-            id="image"
-            accept="image/*"
-            value={image}
-            onClick={handleImageChange}
-          />
-
           <CameraIcon className="camera-icon"/>
           </div>
 
@@ -56,8 +83,8 @@ const NewItemPage = () => {
           className="textInput"
             type="date"
             id="dateLostFound"
-            value={dateLostFound}
-            onChange={(e) => setDateLostFound(e.target.value)}
+            value={dateReported}
+            onChange={(e) => setDateReported(e.target.value)}
             required
           ></input>
 
@@ -86,12 +113,12 @@ const NewItemPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="status">Item Category</label>
+          <label htmlFor="status">Item Status</label>
           
           <select
             id="status"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
+            value={lost}
+            onChange={(e) => setLost(e.target.value)}
             required
           >
             <option value="">Select status</option>
