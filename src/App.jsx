@@ -58,7 +58,7 @@ function App() {
       element: <Index />
     },
     {
-      path: "/items/:itemId",
+      path: "/items/:id",
       element: <ItemDetails token={token} />
     },
     {
@@ -74,7 +74,7 @@ function App() {
       element: <SignupPage setUserInfo={updateUserInfo} />
     },
     {
-      path: "/item/:id/claim",
+      path: "/items/:id/claim",
       element: <ItemClaim />
     },
     {
