@@ -100,7 +100,7 @@ const Items = () => {
       ) : (
         <div className="reportedItemsContainer">
           {filteredItems.map((item) => (
-            <Link key={item._id} to={`/item/${item._id}/claim`}>
+            <Link key={item._id} to={`/items/${item._id}`}>
               <ItemCard
                 key={item._id}
                 title={item.title}

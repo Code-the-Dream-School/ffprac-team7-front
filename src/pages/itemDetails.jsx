@@ -33,7 +33,7 @@ function ItemDetails() {
         }
         const itemDetails = await response.json();
         console.log(itemDetails);
-        setCurrentItem(itemDetails);
+        setCurrentItem(itemDetails.item);
       } catch (error) {
         alert("Failed to fetch items");
         console.log(error);
@@ -85,7 +85,7 @@ if (currentItem === null || currentItem === undefined) {
         </p>
 
         <div className="claimButtonContainer">
-          <Link to={`/item/${currentItem._id}/claim`} className="button">
+          <Link to={`/items/${currentItem._id}/claim`} className="button">
             Claim
           </Link>
         </div>
@@ -95,6 +95,3 @@ if (currentItem === null || currentItem === undefined) {
 }
 
 export default ItemDetails;
-
-
-
