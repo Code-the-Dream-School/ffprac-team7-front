@@ -2,70 +2,99 @@ import React, { useState } from "react";
 import "../styles/NewItemPage.css";
 import Header from "../shared/header";
 import CameraIcon from "../assets/CameraIcon";
+import { ToastContainer, toast } from "react-toastify";
 
-
+const theToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjJkNzAzZWJhMzJmNDFjNzg5NTIwMWIiLCJ1c2VybmFtZSI6IlRyZWVTdGFuZCIsImlhdCI6MTcxNDI2OTgwMCwiZXhwIjoxNzE2ODYxODAwfQ.v1kpMaryjcNcDq-3QT-rHXGbT-RhF2UX0oFyq7he4Pw";
+const token = encodeURIComponent(theToken);
 
 const NewItemPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
-  const [image, setImage] = useState("");
-  const [dateLostFound, setDateLostFound] = useState("");
-  const [location, setLocation] = useState("")
+  const [lost, setLost] = useState("");
+  const [dateReported, setDateReported] = useState("");
+  const [location, setLocation] = useState("");
+  const [newItemData, setNewItemData] = useState({});
+  const [message, setMessage] = useState(" ");
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          title,
+          description,
+          lost,
+          dateReported,
+          location,
+        }),
+      });
+
+      if (response.ok) {
+        const itemData = await response.json();
+        console.log("Item posted success", itemData);
+        setNewItemData(itemData);
+        setMessage(alert("Item posted successfully"));
+        setTitle("");
+        setDescription("");
+        setLost("");
+        setDateReported("");
+        setLocation("");
+      } else {
+        const errorData = await response.json();
+        console.log(
+          "Post item failed",
+          response.status,
+          response.json(),
+          errorData
+        );
+        setMessage(alert("Failed to post item. Please try again."));
+      }
+    } catch (error) {
+      console.log("Post item failed", error);
+    }
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   console.log("Form submitted:", { title, description, status });
-  //   // Reset to
-  //   setTitle("");
-  //   setDescription("");
-  //   setStatus("");
-  //   setDateLostFound("");
-  //   setImage("");
-  //   setLocation("");
-  // };
 
   return (
     <div>
-      <Header pageTitle="Report an Item"/>
-      <form className="newItemFormContainer" >
-           <label htmlFor="image">Attach Image</label>
+      <Header pageTitle="Report an Item" />
+      {message && (
+        <div
+          className={`message ${
+            message.includes("success") ? "success" : "error"
+          }`}
+        >
+          {message}
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="newItemFormContainer">
+        <label htmlFor="image">Attach Image</label>
         <div className="imgInputContainer">
-      
-          <input
-           className="imgInput"
-            type="file"
-            id="image"
-            accept="image/*"
-            value={image}
-            onClick={handleImageChange}
-          />
+          <CameraIcon className="camera-icon" />
+        </div>
 
-          <CameraIcon className="camera-icon"/>
-          </div>
+        <div>
+          <label htmlFor="date">Date</label>
 
-          <div><label  htmlFor="date">Date</label>
-       
           <input
-          className="textInput"
+            className="textInput"
             type="date"
             id="dateLostFound"
-            value={dateLostFound}
-            onChange={(e) => setDateLostFound(e.target.value)}
+            value={dateReported}
+            onChange={(e) => setDateReported(e.target.value)}
             required
           ></input>
-
-           </div>
-        <div>  <label  htmlFor="title">Item Name</label>
-        
+        </div>
+        <div>
+          {" "}
+          <label htmlFor="title">Item Name</label>
           <input
-          className="textInput"
+            className="textInput"
             type="text"
             id="title"
             value={title}
@@ -74,10 +103,10 @@ const NewItemPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="location" >Location</label>
-         
+          <label htmlFor="location">Location</label>
+
           <input
-          className="textInput"
+            className="textInput"
             type="text"
             id="location"
             value={location}
@@ -86,22 +115,22 @@ const NewItemPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="status">Item Category</label>
-          
+          <label htmlFor="status">Item Status</label>
+
           <select
             id="status"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
+            value={lost}
+            onChange={(e) => setLost(e.target.value)}
             required
           >
             <option value="">Select status</option>
-            <option value="lost">Lost</option>
-            <option value="found">Found</option>
+            <option value={true}>Lost</option>
+            <option value={false}>Found</option>
           </select>
         </div>
         <div>
           <label htmlFor="description">Description</label>
-       
+
           <textarea
             id="description"
             value={description}
@@ -109,7 +138,9 @@ const NewItemPage = () => {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={handleSubmit}>
+          Submit
+        </button>
       </form>
     </div>
   );
