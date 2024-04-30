@@ -5,3 +5,10 @@ body {
 html, body, div {
     box-sizing: border-box;
 }
+
+a{
+    text-decoration: none;
+    font: 400 14px/1.5 "Poppins", Helvetica, Arial, serif;
+    color: rgb(102, 102, 102);
+    
+}
