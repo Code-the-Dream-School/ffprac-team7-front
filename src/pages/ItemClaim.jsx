@@ -3,6 +3,8 @@ import Header from "../shared/header";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../styles/ItemClaim.css";
+import  imagePlaceholder from "../assets/placeholder.svg"
+
 const ItemClaim = () => {
   const { id } = useParams();
   const [currentItem, setCurrentItem] = useState({});
@@ -47,7 +49,7 @@ const ItemClaim = () => {
         <div className="imgItemContainer">
           <img
             className="imgItem"
-            src={currentItem.images || ""}
+            src={currentItem.images || imagePlaceholder}
             alt={currentItem.title || ""}
           />
         </div>
