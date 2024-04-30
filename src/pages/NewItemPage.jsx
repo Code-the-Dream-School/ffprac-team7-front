@@ -2,97 +2,99 @@ import React, { useState } from "react";
 import "../styles/NewItemPage.css";
 import Header from "../shared/header";
 import CameraIcon from "../assets/CameraIcon";
+import { ToastContainer, toast } from "react-toastify";
 
+const theToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjJkNzAzZWJhMzJmNDFjNzg5NTIwMWIiLCJ1c2VybmFtZSI6IlRyZWVTdGFuZCIsImlhdCI6MTcxNDI2OTgwMCwiZXhwIjoxNzE2ODYxODAwfQ.v1kpMaryjcNcDq-3QT-rHXGbT-RhF2UX0oFyq7he4Pw";
+const token = encodeURIComponent(theToken);
 
-
-const NewItemPage = ({token}) => {
-
+const NewItemPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [lost, setLost] = useState("");
   const [dateReported, setDateReported] = useState("");
-  const [location, setLocation] = useState("")
-  const [error, setError] =useState("")
+  const [location, setLocation] = useState("");
+  const [newItemData, setNewItemData] = useState({});
+  const [message, setMessage] = useState(" ");
 
-
-
-
-
-  const handleAddItem = async(formData) => {
-    
-      try {
-        const response = await fetch('http://localhost:8000/api/v1/items', {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${await token}`,
-            },
-            body: formData,
-        });
-
-        if (response.ok) {
-            const body = await response.json();
-            console.log(`Item created successfully ${response.status}, body`);
-        } else {
-            throw new Error(`API request failed ${response.status}`);
-        }
-    } catch (error) {
-        console.error("Error while adding item:", error);
-        alert("Failed to add item. Please try again later.");
-    }
-};
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-
-
-    if (!title || !description || !lost || !dateReported || !location) {
-        setError("All fields are required!");
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("lost", lost);
-    formData.append("dateReported", dateReported);
-    formData.append("location", location);
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-     
-        await handleAddItem(formData);
-setLost("")
-    } catch (error) {
+      const response = await fetch("http://localhost:8000/api/v1/items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          title,
+          description,
+          lost,
+          dateReported,
+          location,
+        }),
+      });
 
-        console.error("Error while submitting form:", error);
-        setError("Failed to submit the form. Please try again later.");
+      if (response.ok) {
+        const itemData = await response.json();
+        console.log("Item posted success", itemData);
+        setNewItemData(itemData);
+        setMessage(alert("Item posted successfully"));
+        setTitle("");
+        setDescription("");
+        setLost("");
+        setDateReported("");
+        setLocation("");
+      } else {
+        const errorData = await response.json();
+        console.log(
+          "Post item failed",
+          response.status,
+          response.json(),
+          errorData
+        );
+        setMessage(alert("Failed to post item. Please try again."));
+      }
+    } catch (error) {
+      console.log("Post item failed", error);
     }
-};
+  };
 
   return (
     <div>
-      <Header pageTitle="Report an Item"/>
-      <form onSubmit={handleSubmit} className="newItemFormContainer" >
-           <label htmlFor="image">Attach Image</label>
+      <Header pageTitle="Report an Item" />
+      {message && (
+        <div
+          className={`message ${
+            message.includes("success") ? "success" : "error"
+          }`}
+        >
+          {message}
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="newItemFormContainer">
+        <label htmlFor="image">Attach Image</label>
         <div className="imgInputContainer">
-          <CameraIcon className="camera-icon"/>
-          </div>
+          <CameraIcon className="camera-icon" />
+        </div>
 
-          <div><label  htmlFor="date">Date</label>
-       
+        <div>
+          <label htmlFor="date">Date</label>
+
           <input
-          className="textInput"
+            className="textInput"
             type="date"
             id="dateLostFound"
             value={dateReported}
             onChange={(e) => setDateReported(e.target.value)}
             required
           ></input>
-
-           </div>
-        <div>  <label  htmlFor="title">Item Name</label>
-        
+        </div>
+        <div>
+          {" "}
+          <label htmlFor="title">Item Name</label>
           <input
-          className="textInput"
+            className="textInput"
             type="text"
             id="title"
             value={title}
@@ -101,10 +103,10 @@ setLost("")
           />
         </div>
         <div>
-          <label htmlFor="location" >Location</label>
-         
+          <label htmlFor="location">Location</label>
+
           <input
-          className="textInput"
+            className="textInput"
             type="text"
             id="location"
             value={location}
@@ -114,7 +116,7 @@ setLost("")
         </div>
         <div>
           <label htmlFor="status">Item Status</label>
-          
+
           <select
             id="status"
             value={lost}
@@ -122,13 +124,13 @@ setLost("")
             required
           >
             <option value="">Select status</option>
-            <option value="lost">Lost</option>
-            <option value="found">Found</option>
+            <option value={true}>Lost</option>
+            <option value={false}>Found</option>
           </select>
         </div>
         <div>
           <label htmlFor="description">Description</label>
-       
+
           <textarea
             id="description"
             value={description}
@@ -136,7 +138,9 @@ setLost("")
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={handleSubmit}>
+          Submit
+        </button>
       </form>
     </div>
   );
