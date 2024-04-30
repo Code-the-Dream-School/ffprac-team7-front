@@ -1,150 +1,121 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../shared/header";
 import ItemCard from "../shared/ItemCard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/Items.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjJkNzAzZWJhMzJmNDFjNzg5NTIwMWIiLCJ1c2VybmFtZSI6IlRyZWVTdGFuZCIsImlhdCI6MTcxNDI2OTgwMCwiZXhwIjoxNzE2ODYxODAwfQ.v1kpMaryjcNcDq-3QT-rHXGbT-RhF2UX0oFyq7he4Pw";
+const encodedToken = encodeURIComponent(token);
 
+const Items = () => {
+  const [items, setItems] = useState([]);
+  const [filter, setFilter] = useState("");
+  const [error, setError] = useState(null);
+  const [lostFilter, setLostFilter] = useState(null);
 
-const reportedItems =
-  [
-    {
-      id: 1,
-      title: "wallet",
-      type: "found",
-      description:
-        "Dark brown bifold wallet with the monogram CTD printed on both side",
-      photo:
-        "https://media.istockphoto.com/photos/money-wallet-ii-picture-id91599577?k=6&m=91599577&s=612x612&w=0&h=k_F9VXa-93UtI1d1eSaH_eVkKcMrA4mBU2YZ_wmgQlU=",
-      dateLostFound: "2024-03-25",
-      location: "Coffee Shop",
-    },
-    {
-      id: 2,
-      title: "cat",
-      type: "lost",
-      description:
-        "Lost short hair domestic cat with a collar. Named 'Clarice' and is very friendly.",
-      photo:
-        "https://c.pxhere.com/photos/38/3d/adorable_animal_cat_close_up_cute_feline_kitty_pet-1486829.jpg!d",
-      dateLostFound: "2024-03-20",
-      location: "Park",
-    },
-    {
-      id: 3,
-      title: "keys",
-      type: "lost",
-      description:
-        "Set of keys with a green keychain and a house-shaped key holder.",
-      photo:
-        "https://images.pexels.com/photos/724329/pexels-photo-724329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      dateLostFound: "2024-03-18",
-      location: "Bus Stop",
-    },
-    {
-      id: 4,
-      title: "smartphone",
-      type: "found",
-      description: "Black iPhone 12 with a cracked screen.",
-      dateLostFound: "2024-03-22",
-      location: "Restaurant",
-    },
-    {
-      id: 5,
-      title: "bike",
-      type: "lost",
-      description: "Red mountain bike with a black seat and silver handlebars.",
-      dateLostFound: "2024-03-15",
-      location: "School",
-    },
-    {
-      id: 6,
-      title: "earrings",
-      type: "found",
-      description: "Pair of silver hoop earrings found near the park.",
-      dateLostFound: "2024-03-23",
-      location: "Park Entrance",
-    },
-    {
-      id: 7,
-      title: "backpack",
-      type: "lost",
-      description: "Blue backpack with a NASA patch sewn on the front pocket.",
-      dateLostFound: "2024-03-18",
-      location: "Library",
-    },
-    {
-      id: 8,
-      title: "watch",
-      type: "found",
-      description: "Golden wristwatch with a leather strap.",
-      dateLostFound: "2024-03-24",
-      location: "Shopping Mall",
-    },
-    {
-      id: 9,
-      title: "laptop",
-      type: "lost",
-      description: "Macbook Air laptop in a black case.",
-      dateLostFound: "2024-03-14",
-      location: "Coffee Shop",
-    },
-    {
-      id: 10,
-      title: "bracelet",
-      type: "found",
-      description: "Gold bracelet with small diamond studs.",
-      dateLostFound: "2024-03-21",
-      location: "Park",
-    },
-  ];
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
+  const fetchItems = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/items", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${encodedToken}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch");
+      }
+      const data = await response.json();
+      console.log(data);
+      setItems(data.items || []);
+    } catch (error) {
+      setError(error.message);
+      toast.error("Failed to fetch items");
+      console.log(error.message);
+    }
+  };
 
-  const Items = () => {
-    const [filter, setFilter] = useState("");
-  
-    const handleFilterChange = (event) => {
-      const { value } = event.target;
-      setFilter(value);
-    };
-    
-    const filteredItems = reportedItems.filter((item) => {
-      const titleMatch = item.title.toLowerCase().includes(filter.toLowerCase());
-      const dateMatch = item.dateLostFound.includes(filter);
-      return titleMatch || dateMatch;
-    });
-    
-    return (
-      <div>
-        <Header pageTitle="Reported Items" />
+  const handleFilterChange = (event) => {
+    const { value } = event.target;
+    setFilter(value);
+  };
+
+  const handleClearFilter = () => {
+    setFilter("");
+  };
+
+  const handleLostFilter = (lostValue) => {
+    setLostFilter(lostValue);
+  };
+
+  const filteredItems = Array.isArray(items)
+    ? items.filter((item) => {
+        const lowercaseFilter = filter.toLowerCase();
+        const lowercaseTitle = item.title.toLowerCase();
+        return (
+          (!lostFilter || item.lost === lostFilter) && // Check lost filter
+          ((item._id && item._id.toLowerCase().includes(lowercaseFilter)) ||
+            (item.location &&
+              item.location.toLowerCase().includes(lowercaseFilter)) ||
+            (item.dateReported &&
+              item.dateReported.toLowerCase().includes(lowercaseFilter)) ||
+            (item.title && lowercaseTitle.includes(lowercaseFilter))) // Filter by title
+        );
+      })
+    : [];
+
+  console.log();
+  return (
+    <div>
+      <Header pageTitle="Reported Items" />
+      <div className="LostFoundButtonContainer">
+        <button className="button" onClick={() => handleLostFilter(true)}>
+          Lost
+        </button>
         <div className="searchContainer">
           <input
             className="searchField"
             type="text"
-            placeholder="Search: title or date"
+            placeholder="Search: Title, Date, or Location"
             value={filter}
             onChange={handleFilterChange}
-            />
+          />
+          {filter && (
+            <button className="clearFilterButton" onClick={handleClearFilter}>
+              Clear
+            </button>
+          )}
         </div>
-        {filteredItems.length === 0 ? (
-          <div className="noResultsMessage">No Results Found</div>
-         ):( 
+        <button className="button" onClick={() => handleLostFilter(false)}>
+          Found
+        </button>
+      </div>
+      {filteredItems.length === 0 ? (
+        <div className="noResultsMessage">No Results Found</div>
+      ) : (
         <div className="reportedItemsContainer">
           {filteredItems.map((item) => (
-            <Link key={item.id} to={`/item/${item.id}`}>
+            <Link key={item._id} to={`/item/${item._id}/claim`}>
               <ItemCard
-                key={item.id}
-                photo={item.photo}
+                key={item._id}
                 title={item.title}
-                dateLostFound={item.dateLostFound}
-                id={item.id}
-                />
+                description={item.description}
+                location={item.location}
+                lost={item.lost}
+                dateReported={item.dateReported}
+              />
             </Link>
           ))}
         </div>
       )}
-      </div>
-    );
-  };
-  
-  export default Items;
+      <ToastContainer className="itemsToast" />
+    </div>
+  );
+};
+
+export default Items;

@@ -4,19 +4,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0rem 0rem 15rem 1rem;
 }
 
 .ItemCard {
   width: 143px;
   height: 146px;
   margin-top: 10px;
+  border-spacing: 2rem;
 }
 
 .ItemCard img {
-  width: 143px;
-  height: 111px;
+  width: 8rem;
+  height: 191px;
   border-radius: 7px;
+  
 }
 
 .itemTitle {
@@ -35,7 +37,7 @@ text-decoration: none;
 }
 
 .dateLostFound {
-  position: absolute;
+  position: relative;
   margin-top: 0px;
   color: #0C2D57;
   font-family: "Poppins";
@@ -65,4 +67,9 @@ text-decoration: none;
  text-align: center;
 }
 
-
+.LostFoundButtonContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem 1rem 0rem 1rem;
+}
