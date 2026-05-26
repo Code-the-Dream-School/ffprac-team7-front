@@ -1,4 +1,5 @@
 instructions and desciption located in back end directory
+located here https://github.com/Code-the-Dream-School/ffprac-team7-back/
 
 # Front-End Repo for Node/React Practicum
 
